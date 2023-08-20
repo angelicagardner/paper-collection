@@ -13,12 +13,12 @@
 
 ### DOI
 
-[add link]
+...
 
 
 ### Related links
 
-(optional)
+(optional, e.g. source code)
 
 
 ## Key Takeaways

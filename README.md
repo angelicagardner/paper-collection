@@ -7,7 +7,7 @@ This repo setup is inspired by the following article: [How to Organize your Data
 
 ## Format
 
-1. Interesting articles and papers are created as Issues (to be read). The name of the article/paper is used as the title of the Issue.
+1. Interesting articles and papers are created as Issues (to be read). There is an Issues template to describe the default information that should be included, e.g. the name of the article/paper is used as the title of the Issue.
 2. When an article/paper has been read, a Pull Request is created with information according to the Pull Requests Template. Once the PR has been merged, the associated issue is automatically closed.
 3. Each PR contains the following information:
     - TL;DR - A short summary (~140 characters). It should capture the essence of the problem being solved, the solution/approach the author(s) have taken and the results.
