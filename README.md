@@ -1,6 +1,6 @@
-# List of scholarly articles and research papers in AI/ML
+# List of scholarly articles and research papers
 
-A repository for organizing AI/ML scholarly articles and research papers for the purpose of keeping a future reference to interesting ones I've read, quickly review the key points of the articles, and keep track of my reading. I keep interesting articles/papers I want to read as Issues.
+A repository for organizing scholarly articles and research papers for the purpose of keeping a future reference to interesting ones I've read, quickly review the key points of the articles, and keep track of my reading. I keep interesting articles/papers I want to read as Issues.
 
 This repo setup is inspired by the following article: [How to Organize your Data Science Articles with Github](https://towardsdatascience.com/how-to-organize-your-data-science-articles-with-github-b5b9427dad37)
 
