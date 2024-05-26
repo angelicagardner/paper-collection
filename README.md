@@ -22,7 +22,3 @@ The papers are displayed on a GitHub Pages site that contains a table linking to
 ---
 
 Welcome to Paper Collection in Computer Science: Unveiling Knowledge from the Realm of Research!
-
-### Prerequisities 
-
-For the setup to work, the repository needs to have a **Actions secret** created in **Settings**. The secret will be a pasted personal access token (PAT) generated from GitHub Profile **Developer settings**. 
