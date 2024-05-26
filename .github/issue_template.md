@@ -1,22 +1,12 @@
----
-name: Article/Paper Issue Template
-about: The default information provided in each issue.
-title: Article/Paper Title
-labels: ''
-assignees: ''
+# Info
 
----
+**Author(s):**
+**Link:**
 
-### Abstract
+## Abstract
 
-...
+>
 
+## DOI
 
-### DOI
-
-...
-
-
-### Keywords
-
-keyword1, keyword2, keyword3
+[]()
