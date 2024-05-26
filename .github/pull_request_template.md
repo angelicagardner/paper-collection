@@ -1,36 +1,5 @@
-# TITLE of article/paper
+Until ready; mark as Draft.
 
+Mention related issue here, using the syntax #issue_number. For example:
 
-## TL;DR
-
-...
-
-
-### Author(s)
-
-...
-
-
-### DOI
-
-...
-
-
-### Related links
-
-(optional, e.g. source code)
-
-
-## Key Takeaways
-
-* 
-* 
-
-
-## Comments/Questions
-
-* 
-* 
-
-
-Fixes #ISSUE-NUMBER
+    This PR closes #123.
