@@ -1,30 +1,27 @@
-# List of scholarly articles and research papers
+# Paper Collection in Computer Science
 
-A repository for organizing scholarly articles and research papers for the purpose of keeping a future reference to interesting ones I've read, quickly review the key points of the articles, and keep track of my reading. I keep interesting articles/papers I want to read as Issues.
+This repo setup was inspired by (but doesn't exactly follow): [How to Organize your Data Science Articles with Github](https://towardsdatascience.com/how-to-organize-your-data-science-articles-with-github-b5b9427dad37)
 
-This repo setup is inspired by the following article: [How to Organize your Data Science Articles with Github](https://towardsdatascience.com/how-to-organize-your-data-science-articles-with-github-b5b9427dad37)
+## About
 
+This repository is dedicated to summarizing research papers in the field of computer science. Each entry includes a summary, publication details, key insights, and potential discussion points about the research presented. The goal for this repository is to serve as a resource (for myself) to store and quickly access the essence of these papers.
 
-## Format
+## Repository Setup
 
-1. Interesting articles and papers are created as Issues (to be read). There is an Issues template to describe the default information that should be included, e.g. the name of the article/paper is used as the title of the Issue.
-2. When an article/paper has been read, a Pull Request is created with information according to the Pull Requests Template. Once the PR has been merged, the associated issue is automatically closed.
-3. Each PR contains the following information:
-    - TL;DR - A short summary (~140 characters). It should capture the essence of the problem being solved, the solution/approach the author(s) have taken and the results.
-    - Author(s)
-    - DOI - Unique alphanumeric string assigned to a digital document. It serves as a permanent link to the document. 
-    - Related links - To an associated code repo or similar.
-    - Key Takeaways - The parts I found useful.
-    - Comments/Questions - My thoughts/opinions or questions on the paper and/or its results 
-4. There is a GitHub Action that checks so the PR follows the template and contains the necessary info.
-5. Labels are used to assign categories to the article/paper accordingly.
-6. The summarized (finished) articles and papers are included in the published website that is updated each time a new Pull Request is merged.
+### Viewing the Summaries
 
+The papers are displayed on a GitHub Pages site that contains a table linking to individual Markdown files for each paper. These files are located in the `/papers` directory.
 
-## Setup
+### Adding a New Paper
 
-In this repo, there is a GitHub Actions workflow set up to automate the process of generating an HTML file from the merged Pull Requests that summarizes Issues (articles/papers). The workflow will push the changes back to the repository to deploy a website on GitHub pages. The workflow is triggered once a Pull Request has been merged and it utilizes a Python script and environment variables to achieve it's purpose. The Python script uses the GitHub API to fetch and manage the issues. It retrieves a list of issues (excluding pull requests) and generates the HTML file `index.html` to present the articles/papers in a structured format, including Title, Author and Lables.
+1. **Open Issues**: If there's an interesting paper not yet summarized, it will appear as an open Issue. The issues follow an Issue Template.
+2. **After Reading**: The paper will be summarized in a new Markdown file in the `/papers` directory under the "dev" branch. The Markdown file should follow the setup in `papers/_example.md`.
+3. **Open a Pull Request**: Once the summary is ready, a pull request can be created and merged to the main branch. It's important to mention the associated issue using `#issue_number` format in the pull request - this will trigger a workflow that adds the same issue labels to the PR.
+4. **GitHub Actions**: The merged changes will trigger a Workflow that updates the webpage so the new paper is added to the table.
 
+---
+
+Welcome to Paper Collection in Computer Science: Unveiling Knowledge from the Realm of Research!
 
 ### Prerequisities 
 
