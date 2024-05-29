@@ -12,10 +12,16 @@ year: 1989
 
 **Summary:**
 
-## Sections and Figures
+**Pages:** 
 
-- `1. Introduction` - Figure 1.1: Detailed setup
+## Sections Summary
+
+- `1. Introduction`
+  - ...
+  - Figure 1.1: Detailed setup
+  
 - `2. Method`
+  - ...
 
 ## Key Takeaways
 
