@@ -10,9 +10,9 @@ year: 2019
 
 **Paper URL:** https://ieeexplore.ieee.org/document/9060302
 
-**Summary:** Computing environments for complex calculations and large data processing at high speeds are challenging to manage and monitor, leading to traditional alert methods being inefficient. This paper proposes a framework that integrates with modern platforms where the different components (OMNI, Kubernetes, Prometheus, Grafana) serves different purposes to create unified, dynamic and real-time capacities. This scalable infrastructure will be used for management, monitoring and alerting of heterogeneous computing systems at NERSC.
-
 **Pages:** 6
+
+**Summary:** Computing environments for complex calculations and large data processing at high speeds are challenging to manage and monitor, leading to traditional alert methods being inefficient. This paper proposes a framework that integrates with modern platforms where the different components (OMNI, Kubernetes, Prometheus, Grafana) serves different purposes to create unified, dynamic and real-time capacities. This scalable infrastructure will be used for management, monitoring and alerting of heterogeneous computing systems at NERSC.
 
 ## Sections Summary
 
