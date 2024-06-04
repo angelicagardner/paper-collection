@@ -16,8 +16,11 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const issue_number = context.payload.pull_request.body.match(/#(\d+)/)[1];
-          if (issue_number) {
+          const prBody = context.payload.pull_request.body;
+          const issueMatch = prBody ? prBody.match(/#(\d+)/) : null;
+          
+          if (issueMatch) {
+            const issue_number = issueMatch[1];
             const issue = await github.issues.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -31,4 +34,6 @@ jobs:
               issue_number: context.issue.number,
               labels: labels
             });
+          } else {
+            console.log('No associated issue number found in the PR description.');
           }
