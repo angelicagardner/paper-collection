@@ -23,11 +23,6 @@ year: 1989
 - `2. Method`
   - ...
 
-## Key Takeaways
-
-- 
-- 
-
 ### Questions/Discussion Points
 
 - 
