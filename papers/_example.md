@@ -10,9 +10,9 @@ year: 1989
 
 **Paper URL:** 
 
-**Summary:**
-
 **Pages:** 
+
+**Summary:**
 
 ## Sections Summary
 
