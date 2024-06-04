@@ -10,24 +10,23 @@ year: 1989
 
 **Paper URL:** 
 
+**Pages:** 
+
 **Summary:**
 
-## Sections and Figures
+## Sections Summary
 
-- `1. Introduction` - Figure 1.1: Detailed setup
+- `1. Introduction`
+  - ...
+  - *Figure 1. Overview of the setup*
+  
 - `2. Method`
-
-## Key Takeaways
-
-- 
-- 
+  - ...
 
 ### Questions/Discussion Points
 
-- 
-- 
+- ...
 
 ## Links/Resources
 
-- 
-- 
+- ...
