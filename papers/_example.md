@@ -18,17 +18,15 @@ year: 1989
 
 - `1. Introduction`
   - ...
-  - Figure 1.1: Detailed setup
+  - *Figure 1. Overview of the setup*
   
 - `2. Method`
   - ...
 
 ### Questions/Discussion Points
 
-- 
-- 
+- ...
 
 ## Links/Resources
 
-- 
-- 
+- ...
