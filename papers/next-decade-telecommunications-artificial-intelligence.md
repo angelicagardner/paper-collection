@@ -22,7 +22,9 @@ year: 2021
   - We are now generating vast amounts of data which facilitates the application of AI in the communication field.
   
 - `2. Development Roadmap of Mobile Communication and AI`
-  - ...
+  - Mobile industry evolved through 3GPP standards from 2G to 5G, with AI concepts introduced around 2008 via self-organizing networks (SON).
+  - Telecom AI evolution: Initially limited, AI in telecom grew rapidly post-2017 with 3GPP research on 5G features, network optimization, and data analytics.
+  - Organizations like 3GPP, ETSI, O-RAN, and ITU developed AI frameworks and standardization for mobile networks and federated learning integration into 5G.
  
 - `3. Development of Telecommunications AI`
   - ...
@@ -35,8 +37,4 @@ year: 2021
 
 ### Questions/Discussion Points
 
-- AI and 5G are considered General Purpose Technologies (GPTs). GPTs are foundational technologies that have broad applications and potential for significant impact on the economy and society, characterized by their ability to spur innovaction, drive productivity and transform multiple industries. 
-
-## Links/Resources
-
-- ...
+- AI and 5G are considered General Purpose Technologies (GPTs). GPTs are foundational technologies that have broad applications and potential for significant impact on the economy and society, characterized by their ability to spur innovaction, drive productivity and transform multiple industries.
