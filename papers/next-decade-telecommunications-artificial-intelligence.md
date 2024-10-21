@@ -27,6 +27,13 @@ year: 2021
   - Organizations like 3GPP, ETSI, O-RAN, and ITU developed AI frameworks and standardization for mobile networks and federated learning integration into 5G.
  
 - `3. Development of Telecommunications AI`
+  - In traditional communication systems, mathematical models are often used to describe how signals are transmitted, processed, and received, such as with modulation, noise filtering, or error correction. Deep Learning (DL) allows for optimization without needing these explicit models. Instead, it learns patterns and solutions from large amounts of data, making decisions without having a formal mathematical representation of the problem. 
+  - Communication systems are structured hierarchically, like microservices in IT, optimizing subsystems independently. AI (especially DL) could optimize systems holistically rather than in parts.
+  - AI in telecom infrastructure is illustrated from 4 aspects: wireless access network, core network, transport network and terminal.
+  - Wireless Access Network: AI-techniques such as DNN and CNN is applied at multiple layers (physical, MAC, network) to optimize channel quality, signal detection, coding, signal processing, resource management, etc. Self-Organizing Networks (SON) aim for self-configuration and optimization, but faces commercialization struggles due to vendor-specific implementations.
+  - Core Network: NWDAF (Network Data Analytics Function) was standardized by 3GPP in 2017 to integrate AI into the 5G core network for managing mobility, QoS, and network elements - operators are testing this in 5G standalone (SA) networks. O-RAN developed the RIC (RAN Intelligent Controller) for AI-driven radio access network management but it is still in early trials.
+  - Transport Network: The backbone of communication, AI helps monitor, optimize, and guarantee network service quality but it's still in early stages of research.
+  - Terminal: Terminals can report performance data to optimize networks using AI in SON and OSS systems, but most AI-focus on integrating intelligence within terminals and chips.
   - ...
  
 - `4. Next Decade of Telecommunications AI`
@@ -38,3 +45,4 @@ year: 2021
 ### Questions/Discussion Points
 
 - AI and 5G are considered General Purpose Technologies (GPTs). GPTs are foundational technologies that have broad applications and potential for significant impact on the economy and society, characterized by their ability to spur innovaction, drive productivity and transform multiple industries.
+- This whitepaper was written in 2021, it's now 2024 Q4 - how far did we come with the progress now..?
