@@ -29,12 +29,16 @@ year: 2021
 - `3. Development of Telecommunications AI`
   - In traditional communication systems, mathematical models are often used to describe how signals are transmitted, processed, and received, such as with modulation, noise filtering, or error correction. Deep Learning (DL) allows for optimization without needing these explicit models. Instead, it learns patterns and solutions from large amounts of data, making decisions without having a formal mathematical representation of the problem. 
   - Communication systems are structured hierarchically, like microservices in IT, optimizing subsystems independently. AI (especially DL) could optimize systems holistically rather than in parts.
-  - AI in telecom infrastructure is illustrated from 4 aspects: wireless access network, core network, transport network and terminal.
-  - Wireless Access Network: AI-techniques such as DNN and CNN is applied at multiple layers (physical, MAC, network) to optimize channel quality, signal detection, coding, signal processing, resource management, etc. Self-Organizing Networks (SON) aim for self-configuration and optimization, but faces commercialization struggles due to vendor-specific implementations.
-  - Core Network: NWDAF (Network Data Analytics Function) was standardized by 3GPP in 2017 to integrate AI into the 5G core network for managing mobility, QoS, and network elements - operators are testing this in 5G standalone (SA) networks. O-RAN developed the RIC (RAN Intelligent Controller) for AI-driven radio access network management but it is still in early trials.
-  - Transport Network: The backbone of communication, AI helps monitor, optimize, and guarantee network service quality but it's still in early stages of research.
-  - Terminal: Terminals can report performance data to optimize networks using AI in SON and OSS systems, but most AI-focus on integrating intelligence within terminals and chips.
-  - ...
+  - AI in Network Infrastructure improves the physical and functional components that make up telecom networks, such as base stations, routers, and terminals. This is illustrated from 4 aspects:
+      - Wireless Access Network: AI-techniques such as DNN and CNN is applied at multiple layers (physical, MAC, network) to optimize channel quality, signal detection, coding, signal processing, resource management, etc. Self-Organizing Networks (SON) aim for self-configuration and optimization, but faces commercialization struggles due to vendor-specific implementations.
+      - Core Network: NWDAF (Network Data Analytics Function) was standardized by 3GPP in 2017 to integrate AI into the 5G core network for managing mobility, QoS, and network elements - operators are testing this in 5G standalone (SA) networks. O-RAN developed the RIC (RAN Intelligent Controller) for AI-driven radio access network management but it is still in early trials.
+      - Transport Network: The backbone of communication, AI helps monitor, optimize, and guarantee network service quality but it's still in early stages of research.
+      - Terminal: Terminals can report performance data to optimize networks using AI in SON and OSS systems, but most AI-focus on integrating intelligence within terminals and chips.
+  - AI in Network Management enhances the management and operation of telecom networks. It addresses how networks are maintained, optimized, and secured from a management perspective. This is structured around three main components:
+      - MDAF: analyze network data for configuration and optimisation of performance to support QoS. Defined by 3GPP standards.
+      - ENI Engine: network adapts over time based on performance data and feedback to help with network management and overall network reliability. Established by ETSI.
+      - Network OSS: manage and automate various network operations, maintenance, resource optimization and efficient handling of faults based on predictive analytics.
+  - AI development in cross-domain integration intelligence has led to a variety of other use cases in telecom business, e.g. customer experience/sales/service, billing, network policy control and private networks.
  
 - `4. Next Decade of Telecommunications AI`
   - ...
