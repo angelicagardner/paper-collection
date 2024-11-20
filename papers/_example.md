@@ -16,14 +16,14 @@ year: 1989
 
 ## Sections Summary
 
-- `1. Introduction`
-  - ...
-  - *Figure 1. Overview of the setup*
+### `1. Introduction`
+- ...
+- *Figure 1. Overview of the setup*
   
-- `2. Method`
-  - ...
+### `2. Method`
+- ...
 
-### Questions/Discussion Points
+## Questions/Discussion Points
 
 - ...
 
