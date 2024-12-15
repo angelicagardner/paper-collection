@@ -26,7 +26,10 @@ year: 2022
 - This paper contribution is to present a unified experimental platform combining CN 5g core deployment and end-to-end monitoring.
   
 ### `II. Related Work`
-- ...
+- Studies focus either on cloud-native 5G deployments or end-to-end monitoring systems, but not both together.
+- As for CN deployment studies, the studies often rely on partial implementation and lack comprehensive monitoring.
+- As for system monitoring studies, they often exclude RAN metrics or lack containerized 5g core deployment.
+- This paper proposes a framework that integrates both aspects, using containerized network functions (CNFs) orchestrated by Kubernetes. The paper also demonstrates the system through practical scenarios like UPF re-selection and user mobility.
 
 ### `III. Cloud-Native 5G Experimental Platform`
 - ...
