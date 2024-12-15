@@ -17,7 +17,13 @@ year: 2022
 ## Sections Summary
 
 ### `I. Introduction`
-- ...
+- 5G networks aim to address the needs of a fully connected society by enabling services and applications on a unified infrastructure.
+- 5G transitions from centralized architectures to edge computing with multiple points-of-presence (PoPs)
+- Low-latency, high-bandwidth applications benefit from edge computing, e.g. VR/AR.
+- The MARSAL vision for 5G and B5G is focused on advancing capabilities of telecommunications networks. Its key enablers are (1) CN deployments that allow dynamic resource sharing, faster time-to-market and automation, and (2) end-to-end monitoring to manage the complex infrastructures (compute, storage, network, RAN).
+- Monitoring in essential in Multi-Tenant Networks for maintaining KPIs across domains, enabling network operators and slice owners to validate SLAs and optimize operations.
+- Existing research focuses on CN deployments or monitoring separately.
+- This paper contribution is to present a unified experimental platform combining CN 5g core deployment and end-to-end monitoring.
   
 ### `II. Related Work`
 - ...
@@ -36,7 +42,10 @@ year: 2022
 
 ## Questions/Discussion Points
 
-- ...
+- Example to understand the concept of multi-tenant environments (e.g. those enabled by 5g network slicing):
+    - Tenant A operates a streaming service and requires low-latency, high-bandwidth connectivity.
+    - Tenant B runs IoT applications, requiring high reliability but lower bandwidth.
+    - Monitoring tools measure KPIs like latency, jitter, and reliability for each tenant's slice and provide feedback to the network operator. If Tenant A's slice experiences congestion, monitoring systems can trigger an optimization process to allocate more resources or reroute traffic.
 
 ## Links/Resources
 
