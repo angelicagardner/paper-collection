@@ -12,7 +12,7 @@ def generate_table_rows(papers_directory):
                 title = post.metadata.get('title', 'No Title')
                 year = post.metadata.get('year', '')
                 labels = post.metadata.get('labels', '')
-                row_html = f'<tr data-labels="{labels}"><td><a href="https://github.com/angelicagardner/paper-collection/blob/main/talks/{filename}">{title}</a></td><td>{labels}</td><td>{year}</td></tr>'
+                row_html = f'<tr data-labels="{labels}"><td><a href="https://github.com/angelicagardner/paper-collection/blob/main/papers/{filename}">{title}</a></td><td>{labels}</td><td>{year}</td></tr>'
                 rows.append(row_html)
     return rows
 
