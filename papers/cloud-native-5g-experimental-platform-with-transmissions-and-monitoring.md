@@ -32,7 +32,30 @@ year: 2022
 - This paper proposes a framework that integrates both aspects, using containerized network functions (CNFs) orchestrated by Kubernetes. The paper also demonstrates the system through practical scenarios like UPF re-selection and user mobility.
 
 ### `III. Cloud-Native 5G Experimental Platform`
-- ...
+- Overview:
+    - This section details the architecture, deployment strategies, and experimental setups of the 5G platform and its testing environment.
+- Components:
+    - NG-RAN (New Radio Access Network): Manages the new radio (NR) interface essential for 5G wireless communication.
+    - 5G Core Network (5GC): Employs a Service-Based Architecture (SBA) featuring modular Network Functions (NFs) and Service-Based Interfaces (SBIs) that utilize RESTful APIs for communication.
+- Containerized Network Functions (CNFs) offer advantages over PNFs (Physical NFs) and VNFs (Virtual NFs), such as greater scalability, energy efficiency, and suitability for edge applications. Containers, managed by orchestrators like Kubernetes, ensure lightweight and consistent deployments.
+- Deployment Details for 5GC NFs and Monitoring systems:
+    - Deployed within a Kubernetes cluster.
+    - Utilized Helm charts for streamlined installation.
+    - Employed Calico as the Container Network Interface (CNI) plugin to manage networking.
+    - Managed container lifecycle tasks (creation, deletion, scaling) in line with Network Function Virtualization (NFV) standards.
+- Experimental RAN Integration:
+    - Amarisoft’s AMARI Callbox Ultimate serves as a physical 5G gNodeB (gNB) facilitating real over-the-air transmissions. Configured to connect with the Access and Mobility Management Function (AMF) via its IP address exposed through Kubernetes services, ensuring stable connectivity.
+- MEC-Enabled Testbed configuration and components:
+    - User Equipment (UE) Emulators: Two emulators targeting different service types, including best-effort and time-critical services like Augmented Reality (AR) and Virtual Reality (VR).
+    - Amarisoft Callbox: Acts as the standalone 5G gNB.
+    - Edge Node: Hosts MEC-enabled User Plane Function (UPF) and an iperf server for network performance testing.
+    - Core Node: Runs Open5GS CNFs, managing core network functions.
+    - Monitoring Node: Provides end-to-end system monitoring capabilities.
+    - Networking: Simplified to Ethernet links within a Local Area Network (LAN) for testing purposes.
+- Monitoring Setup:
+    - Deployed using Kubeprometheus for comprehensive monitoring.
+    - Collected custom metrics by sampling the Amarisoft Callbox API.
+    - Monitoring CNFs are treated as Application Functions (AFs) within the 5G SBA framework, allowing for integrated monitoring and management.
 
 ### `IV. End-to-End Monitoring: From Core to RAN`
 - ...
