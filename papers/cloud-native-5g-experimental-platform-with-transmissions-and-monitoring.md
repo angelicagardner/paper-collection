@@ -76,10 +76,6 @@ year: 2022
     - The objective was to validate the custom Amarisoft sampling function by analyzing RAN-specific metrics during UE movement.
     - UE1 initiates a 120 Mbps uplink iperf connection to the core node. The receiver gain at the gNB is sequentially reduced by 4 dB via the Amarisoft API to simulate UE1 moving away.
 
-### `VI. Conclusions`
-- This paper demonstrated a cloud-native 5G framework with containerized, end-to-end monitoring.
-- They demonstrated the framework’s capabilities using Grafana dashboards by collecting and visualizing metrics from both infrastructure and RAN domains.
-
 ## Questions/Discussion Points
 
 - Example to understand the concept of multi-tenant environments (e.g. those enabled by 5g network slicing):
