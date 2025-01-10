@@ -36,45 +36,42 @@ year: 2022
 - This paper proposes a framework that integrates both aspects, using containerized network functions (CNFs) orchestrated by Kubernetes.
 
 ### `III. Cloud-Native 5G Experimental Platform`
-- Overview:
-    - This section details the architecture, deployment strategies, and experimental setups of the 5G platform and its testing environment.
+- This section details the architecture, deployment strategies, and experimental setup.
 - Components:
-    - NG-RAN (New Radio Access Network): Manages the new radio (NR) interface essential for 5G wireless communication.
-    - 5G Core Network (5GC): Employs a Service-Based Architecture (SBA) featuring modular Network Functions (NFs) and Service-Based Interfaces (SBIs) that utilize RESTful APIs for communication.
-- Containerized Network Functions (CNFs) offer advantages over PNFs (Physical NFs) and VNFs (Virtual NFs), such as greater scalability, energy efficiency, and suitability for edge applications. Containers, managed by orchestrators like Kubernetes, ensure lightweight and consistent deployments.
-- Deployment Details for 5GC NFs and Monitoring systems:
-    - Deployed within a Kubernetes cluster.
-    - Utilized Helm charts for streamlined installation.
-    - Employed Calico as the Container Network Interface (CNI) plugin to manage networking.
-    - Managed container lifecycle tasks (creation, deletion, scaling) in line with Network Function Virtualization (NFV) standards.
-- Experimental RAN Integration:
-    - Amarisoft’s AMARI Callbox Ultimate serves as a physical 5G gNodeB (gNB) facilitating real over-the-air transmissions. Configured to connect with the Access and Mobility Management Function (AMF) via its IP address exposed through Kubernetes services, ensuring stable connectivity.
+    - NG-RAN (New Radio Access Network): Manages the new radio interface for 5G wireless communication.
+    - 5G Core Network (5GC): uses service-based architecture with modular network functions and RESTful APIs.
+- Containerized Network Functions (CNFs) offer advantages over physical NFs and virtual NFs, such as greater scalability, energy efficiency, and suitability for edge applications. The containers are managed by orchestrators like k8s.
+- Platform is deployed within a k8s cluster, utilizing Helm charts. Calico Container Network Interface (CNI) plugin manages networking within the cluster. The LCM operations (creation, deletion, sclaing) are managed per Network Function Virtualization (NFV) standards.
+- For the RAN integration, Amarisoft’s AMARI Callbox Ultimate serves as a physical 5G gNodeB (gNB) for over-the-air transmissions. It connects with the Access and Mobility Management Function (AMF) via k8s-exposed IP.
 - MEC-Enabled Testbed configuration and components:
-    - User Equipment (UE) Emulators: Two emulators targeting different service types, including best-effort and time-critical services like Augmented Reality (AR) and Virtual Reality (VR).
-    - Amarisoft Callbox: Acts as the standalone 5G gNB.
-    - Edge Node: Hosts MEC-enabled User Plane Function (UPF) and an iperf server for network performance testing.
-    - Core Node: Runs Open5GS CNFs, managing core network functions.
-    - Monitoring Node: Provides end-to-end system monitoring capabilities.
-    - Networking: Simplified to Ethernet links within a Local Area Network (LAN) for testing purposes.
+    - Two User Equipment emulators to simulate different service types, including AR and VR.
+    - The Amarisoft Callbox acts as the standalone 5G gNB.
+    - Edge Node hosts MEC-enabled User Plane Function and an iperf server for network performance testing.
+    - Core Node runs Open5GS CNFs to manage core network functions.
+    - Monitoring Node provides E2E system monitoring.
+    - Ethernet links are utilized within a LAN for testing.
 - Monitoring Setup:
     - Deployed using Kubeprometheus for comprehensive monitoring.
-    - Collected custom metrics by sampling the Amarisoft Callbox API.
-    - Monitoring CNFs are treated as Application Functions (AFs) within the 5G SBA framework, allowing for integrated monitoring and management.
+    - Collected custom metrics from the Amarisoft Callbox API.
+    - Monitoring CNFs are treated as application functions within the 5G service-based architecture framework, allowing for integrated monitoring.
 
 ### `IV. End-to-End Monitoring: From Core to RAN`
-- Specific CNFs were deployed for monitoring purposes, and the deployed CNFs pull metrics both from the core and the RAN domains. The data is gathered into a centralized database where metrics are then plotted in dashboards.
-- Kube-prometheus is used for infrastructure monitoring, to monitor the usage of infrastructure resources, such as compute, storage, and network.
-- Custom sampling function for RAN: For our monitoring purposes, the Amarisoft Callbox can be accessed through a remote API using the WebSocket protocol, which establishes a persistent connection between the client (Amarisoft sampling CNF in monitoring node) and the server (Amarisoft Callbox itself). This API exposes different metrics at gNB/radio level, including (per user and cell id) uplink and downlink bitrate, modulation coding scheme (MCS), channel quality indicator (CQI), or signal-to-noise-ratio (SNR). The custom sampling function we developed, available at the referred repository, is a containerized Python script that opens a WebSocket against the Callbox API and exposes some metrics of interest to the Prometheus scraper.
-- Visualizing metrics with Grafana.
+- The CNFs deployed for monitoring purposes pull metrics from both the core and the RAN domains.
+- Kube-prometheus is used for infrastructure monitoring to get the usage of infrastructure resources, such as compute, storage, and network.
+- For custom RAN sampling, a Python script using WebSocket connects to the Amarisoft Callbox. This API exposes metrics at gNB/radio level including (per user and cell id) uplink/downlink bitrate, modulation coding scheme, channel quality indicator and signal-to-noise-ratio.
+- The data is gathered into a centralized database where metrics are plotted in dashboards in Grafana.
 
 ### `V. Use Case Evaluation`
-- Experiment #1 conducted: Focuses on User Plane Function (UPF) re-selection in MEC-enabled 5G networks.
-    - The objective was to assess the monitoring framework's ability to track resource usage during dynamic UPF re-selection in a MEC-enabled 5G testbed.
-    - UE1 starts a 100 Mbps UDP downlink connection to a core node iperf server.
-    - UE2 initiates a similar connection to the core node.
-- Experiment #2 conducted: Concentrates on RAN (gNB) metrics under UE mobility.
-    - The objective was to validate the custom Amarisoft sampling function by analyzing RAN-specific metrics during UE movement.
-    - UE1 initiates a 120 Mbps uplink iperf connection to the core node. The receiver gain at the gNB is sequentially reduced by 4 dB via the Amarisoft API to simulate UE1 moving away.
+- Experiment #1: User Plane Function (UPF) Re-selection
+    - Objective was to assess the monitoring system's ability to track resource usage during dynamic UPF re-selection in a MEC-enabled 5G testbed.
+    - Procedure:
+        - UE1: Starts a 100 Mbps UDP downlink connection to a core node iperf server.
+        - UE2: Initiates a similar connection to the core nod
+- Experiment #2: RAN Metrics under User Equipment (UE) mobility.
+    - Objective was to validate the custom Amarisoft sampling function by analyzing RAN-specific metrics during UE movement.
+    - Procedure:
+        - UE1: Starts a 120 Mbps uplink iperf connection to the core node.
+        - Receiver gain at the gNB is reduced by 4 dB via the Amarisoft API to simulate UE1 moving away.
 
 ## Questions/Discussion Points
 
