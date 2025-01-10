@@ -12,18 +12,22 @@ year: 2022
 
 **Pages:** 6
 
-**Summary:** This article introduces a framework that enhances LCM of 5G networks through CN deployments and E2E monitoring. The framework demonstrates containerized network functions, like Open5GS, in a Kubernetes cluster with multi-access edge computing (MEC). It also implements a Prometheus-based monitoring system visualized via Grafana dashboards, showcasing use cases in user plane function re-selection and user mobility management.
+**Summary:** This article presents a framework that improves the LCM of 5G networks through cloud-native (CN) deployments and end-to-end (E2E) monitoring. The framework demonstrates containerized network functions, such as Open5GS, deployed within a Kubernetes cluster integrated with multi-access edge computing (MEC). Additionally, it incorporates a Prometheus-based monitoring system visualized through Grafana dashboards, demonstrating practical use cases like user plane function re-selection and user mobility management.
 
 ## Sections Summary
 
 ### `I. Introduction`
-- 5G networks aim to address the needs of a fully connected society by enabling services and applications on a unified infrastructure.
-- 5G transitions from centralized architectures to edge computing with multiple points-of-presence (PoPs)
-- Low-latency, high-bandwidth applications benefit from edge computing, e.g. VR/AR.
-- The MARSAL vision for 5G and B5G is focused on advancing capabilities of telecommunications networks. Its key enablers are (1) CN deployments that allow dynamic resource sharing, faster time-to-market and automation, and (2) end-to-end monitoring to manage the complex infrastructures (compute, storage, network, RAN).
-- Monitoring in essential in Multi-Tenant Networks for maintaining KPIs across domains, enabling network operators and slice owners to validate SLAs and optimize operations.
-- Existing research focuses on CN deployments or monitoring separately.
-- This paper contribution is to present a unified experimental platform combining CN 5g core deployment and end-to-end monitoring.
+- 5G networks aim to address the needs of a fully connected society with unified infrastructure for diverse services and applications.
+- To achieve this an architecture shift is needed: to move from centralized to edge computing with multiple points-of-presence (PoPs)
+- Edge computing is beneficial for low-latency, high-bandwidth applications, e.g. VR/AR.
+- The MARSAL vision for 5G and beyond-5g (B5G) is focused on advancing telecom networks through:
+    - 1) CN deployments that enables dynamic resource sharing, faster time-to-market and automation
+    - 2) E2E monitoring that manages complex infrastructures (compute, storage, network, RAN).
+- Monitoring is essential in Multi-Tenant Networks for maintaining KPIs across domains, enabling network operators and slice owners to validate SLAs and optimize operations.
+- Current research gap:
+    - Existing research focuses on CN deployments or monitoring separately
+- Paper contribution:
+    - Presents a unified experimental platform combining CN 5g core deployment and E2E monitoring.
   
 ### `II. Related Work`
 - Studies focus either on cloud-native 5G deployments or end-to-end monitoring systems, but not both together.
