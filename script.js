@@ -29,19 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function sortTable() {
-        const tbody = document.querySelector('#papersTable tbody');
-        const tableRowsArray = Array.from(tableRows);
-        tableRowsArray.sort((rowA, rowB) => {
-            const yearA = parseInt(rowA.querySelector('td:nth-child(3)').textContent);
-            const yearB = parseInt(rowB.querySelector('td:nth-child(3)').textContent);
-            return yearA - yearB;
-        });
-        // Remove existing rows
-        while (tbody.firstChild) {
-            tbody.removeChild(tbody.firstChild);
-        }
-        // Append sorted rows
-        tableRowsArray.forEach(row => tbody.appendChild(row));
+      const tbody = document.querySelector('#papersTable tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      rows.sort((a, b) => {
+        const yearA = parseInt(a.cells[2].textContent, 10);
+        const yearB = parseInt(b.cells[2].textContent, 10);
+        return yearA - yearB;
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
     }
 
     populateFilterOptions();
