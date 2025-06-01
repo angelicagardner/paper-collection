@@ -2,7 +2,7 @@ name: Sync Labels from Issue to PR
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   sync-labels:
@@ -37,3 +37,8 @@ jobs:
           } else {
             console.log('No associated issue number found in the PR description.');
           }
+
+    - name: Random RickRoll
+      uses: TejasvOnly/random-rickroll@v1.0
+      with:
+          percentage: 25
