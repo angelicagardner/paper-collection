@@ -1,24 +1,62 @@
 # Paper Collection in Computer Science
 
-This repo setup was inspired by (but doesn't exactly follow): [How to Organize your Data Science Articles with Github](https://towardsdatascience.com/how-to-organize-your-data-science-articles-with-github-b5b9427dad37)
+This repository is dedicated to summarizing and organizing research papers across the field of computer science with focus on what is currently relevant for my work and interest.
 
-## About
+The goal is to create a personal, structured knowledge base where each entry includes:
 
-This repository is dedicated to summarizing research papers in the field of computer science. Each entry includes a summary, publication details, key insights, and potential discussion points about the research presented. The goal for this repository is to serve as a resource (for myself) to store and quickly access the essence of these papers.
+- A summary of the paper’s main contributions
+- Publication metadata (authors, year, venue, publisher)
+- Key insights and discussion points
+
+> 🧭 This setup is inspired by [How to Organize your Data Science Articles with GitHub](https://towardsdatascience.com/how-to-organize-your-data-science-articles-with-github-b5b9427dad37) but adapted for academic research tracking.
 
 ## Repository Setup
 
 ### Viewing the Summaries
 
-The papers are displayed on a GitHub Pages site that contains a table linking to individual Markdown files for each paper. These files are located in the `/papers` directory.
+All paper summaries are located in the `/papers` directory and displayed on a GitHub Pages site as a searchable table.
+Each summary file follows the structure of `papers/_example.md`.
 
 ### Adding a New Paper
 
-1. **Open Issues**: If there's an interesting paper not yet summarized, it will appear as an open Issue. The issues follow an Issue Template.
-2. **After Reading**: The paper will be summarized in a new Markdown file in the `/papers` directory under the "dev" branch. The Markdown file should follow the setup in `papers/_example.md`.
-3. **Open a Pull Request**: Once the summary is ready, a pull request can be created and merged to the main branch. It's important to mention the associated issue using `#issue_number` format in the pull request - this will trigger a workflow that adds the same issue labels to the PR.
-4. **GitHub Actions**: The merged changes will trigger a Workflow that updates the webpage so the new paper is added to the table.
+1. **Open Issues**: Interesting papers yet to be read appear as open issues following a template.
+2. **After Reading**: Summarize the paper in a new Markdown file in the /papers directory (on the dev branch).
+3. **Open a Pull Request**: Reference the issue using #issue_number. A GitHub Action syncs the issue labels (publisher, year, research type, etc.) to the PR.
+4. **GitHub Actions**: When merged, a workflow regenerates the website index automatically.
 
----
+## Label System
 
-Welcome to Paper Collection in Computer Science: Unveiling Knowledge from the Realm of Research!
+The repository uses labels to categorize papers consistently across three main dimensions:
+
+### 1. Research Type
+
+Indicates what kind of scientific contribution the paper makes.
+
+| Type	| Description |	Example Keywords |
+| --- | --- | --- | 
+| Theoretical	| Develops models, frameworks, or formal proofs without direct experimentation.	| Algorithms, models, formal methods |
+| Empirical	| Based on observation, measurement, experimentation, or data collection.	| Case study, benchmark, survey, measurement |
+| Design / Tool	| Proposes a new system, method, or tool and demonstrates or evaluates it. | Architecture, prototype, implementation |
+| Conceptual / Position |	Introduces new ideas or perspectives; may argue a viewpoint without empirical data.	| Vision paper, manifesto |
+| Survey / Review	| Synthesizes and compares existing research on a topic. | Literature review, mapping study |
+
+### 2. Item Type
+
+Describes how and where the paper was published.
+
+| Type | Description| 
+| --- | --- |
+| Journal Article | Peer-reviewed research published in a scientific journal. |
+| Conference Paper | Peer-reviewed research presented at a scientific conference. |
+| Workshop Paper | Preliminary or specialized research, usually shorter than a conference paper. |
+| Preprint / Technical Report	| Research not yet peer-reviewed, often shared on arXiv or ResearchGate. |
+| White Paper / Industry Report |	Practitioner-oriented document outlining applied research or a technology proposal. |
+| Thesis / Dissertation	| Academic research submitted for a degree. |
+
+### 3. Publisher and Year
+
+Used for filtering or sorting papers by publication context e.g., ACM, IEEE, Springer, arXiv.
+
+### 4. Domain & Topic Labels
+
+These describe the content of the paper e.g., observability, monitoring, cloud native, scalability, telecom.
