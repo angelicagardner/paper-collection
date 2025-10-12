@@ -28,19 +28,19 @@ Each summary file follows the structure of `papers/_example.md`.
 
 The repository uses labels to categorize papers consistently across three main dimensions:
 
-### 1. Research Type
+### 1. Research Type 🟦
 
 Indicates what kind of scientific contribution the paper makes.
 
 | Type	| Description |	Example Keywords |
 | --- | --- | --- | 
 | Theoretical	| Develops models, frameworks, or formal proofs without direct experimentation.	| Algorithms, models, formal methods |
-| Empirical	| Based on observation, measurement, experimentation, or data collection.	| Case study, benchmark, survey, measurement |
+| Empirical / Case Study | Based on observation, measurement, experimentation, or data collection.	| Case study, benchmark, survey, measurement |
 | Design / Tool	| Proposes a new system, method, or tool and demonstrates or evaluates it. | Architecture, prototype, implementation |
 | Conceptual / Position |	Introduces new ideas or perspectives; may argue a viewpoint without empirical data.	| Vision paper, manifesto |
 | Survey / Review	| Synthesizes and compares existing research on a topic. | Literature review, mapping study |
 
-### 2. Item Type
+### 2. Item Type 🟩
 
 Describes how and where the paper was published.
 
@@ -53,10 +53,10 @@ Describes how and where the paper was published.
 | White Paper / Industry Report |	Practitioner-oriented document outlining applied research or a technology proposal. |
 | Thesis / Dissertation	| Academic research submitted for a degree. |
 
-### 3. Publisher and Year
+### 3. Publisher 🟪 and Year 🟨
 
 Used for filtering or sorting papers by publication context e.g., ACM, IEEE, Springer, arXiv.
 
-### 4. Domain & Topic Labels
+### 4. Domain & Topic Labels 🟥
 
 These describe the content of the paper e.g., observability, monitoring, cloud native, scalability, telecom.
