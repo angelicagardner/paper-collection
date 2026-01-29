@@ -33,13 +33,30 @@ year: 2008
 - To eliminate the central authority, all transactions must be publicly announced so that the entire network can agree on a single, chronological history of transactions based on which one the majority of nodes received first.
 
 ### `3. Timestamp Server`
-- ...
+
+- The system creates a record of when data existed by taking a hash of a block of items and widely publishing it.
+
+- Each new timestamp incorporates the previous timestamp within its own hash, creating a continuous chain where every additional block strengthens and validates the chronological order of all preceding entries.
+
+- Bitcoin uses this "Hash Chain" to ensure that once a "timestamp" (block) is published, the history cannot be changed without changing every subsequent hash in the system.
 
 ### `4. Proof-of-Work`
-- ...
+
+- To implement the timestamp server in a Peer-to-Peer system (where there is no leader), a proof-of-work system is needed.
+
+- To prevent fraudulent voting from taking over the network by simply creating thousands of fake identities (a "Sybil attack"), the paper establishes a "one-CPU-one-vote" system where nodes must prove they expended actual energy to validate a block.
+
+- Finding a valid block requires solving a difficult mathematical puzzle which makes the chain immutable because an attacker would have to redo the work for every subsequent block to change a single past transaction (i.e. impossible as long as honest nodes control the majority of CPU power).
 
 ### `5. Network`
-- ...
+
+- New transactions are broadcast to all nodes, and each node collects these into a candidate block.
+
+- Every node works on finding the difficult Proof-of-Work for its block; the first node to solve the puzzle broadcasts its successful block to the entire network.
+
+- Nodes accept the block only if all transactions inside it are valid and not already spent.
+
+- Nodes always consider the longest chain (with the most proof-of-work) to be the correct one and will switch to a longer branch if it appears, ensuring the network eventually converges on a single history.
 
 ### `6. Incentive`
 - ...
@@ -61,8 +78,7 @@ year: 2008
 
 ## Questions/Discussion Points
 
-- ...
-
-## Links/Resources
-
-- ...
+- Gap between Satoshi's vision and the current industry reality: 
+	- Many users don't manage their own private keys but keep their Bitcoin on a centralized exchange or a managed wallet, which is basically using a "trusted third party"?
+- Central banks can print more money which devalues the currency you already hold. Bitcoin solves this with a fixed supply (21 million). Bitcoin was designed to solve monetary debasement (printing money), not market fluctuations (people changing their minds about what it's worth). So the bitcoin is still vulnerable to wealth decreasing (because of value fall on stock market).
+- Could be interesting to read "The Bitcoin Backbone Protocol" or a paper on Ethereum's architecture as follow-up.
