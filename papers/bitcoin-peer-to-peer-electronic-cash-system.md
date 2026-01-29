@@ -59,22 +59,42 @@ year: 2008
 - Nodes always consider the longest chain (with the most proof-of-work) to be the correct one and will switch to a longer branch if it appears, ensuring the network eventually converges on a single history.
 
 ### `6. Incentive`
-- ...
+
+- The incentive answers why anyone would spend on electricity and hardware to secure a network they don't own.
+
+- The first transaction in every block is a special transaction that creates new coins for the node that found the block (mining).
+
+- Once the total supply is reached, the incentive shifts to transaction fees.
+
+- The incentive is designed to make attacking the network less profitable than following the rules. 
 
 ### `7. Reclaiming Disk Space`
-- ...
+
+- Once a transaction is "buried" under enough blocks and its coins are spent, the raw data for that transaction is no longer strictly needed to verify future blocks and can be discarded to save space.
 
 ### `8. Simplified Payment Verification`
-- ...
+
+- "Lightweight" users don't need to download the entire multi-gigabyte blockchain, they only need to keep the 80-byte block headers of the longest chain to verify that a transaction has been accepted by the network.
+
+- SPV is less secure than running a full node because you are trusting that the "Longest Chain" you see is the honest one. Therefore, it's recommended in the paper that businesses that receive frequent payments run their own nodes.
 
 ### `9. Combining and Splitting Value`
-- ...
+
+- To avoid the inefficiency of sending 100 separate transactions for small amounts, the protocol allows a single transaction to contain multiple inputs and outputs.
+
+- History is decoupled so a user never needs to download or extract the complete, standalone history of every single branch to verify their own current transaction. Since each is independent, many transactions can be processed in parallel.
 
 ### `10. Privacy`
-- ...
+
+- In traditional banking the ledger is kept private and only the parties involved see the data. In Bitcoin, the ledger is public.
+
+- While the entire network can see that an amount of money moved from one address to another, they cannot see who those addresses belong to because public keys are kept anonymous.
 
 ### `11. Calculations`
-- ...
+
+- This section is an example of Formal Verification in distributed systems.
+
+- It mathematically proves that the cost of the electricity and hardware needed to attempt an attack is higher than the expected gain.
 
 ## Questions/Discussion Points
 
