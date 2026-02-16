@@ -22,6 +22,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font: 1rem/1.6 var(--font);
+  min-height: 100vh;
 }
 
 a {
@@ -77,6 +78,7 @@ select, button {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   transition: background var(--transition), box-shadow var(--transition);
+  margin-top: 1em;
 }
 
 select:focus,
