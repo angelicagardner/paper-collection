@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ summary }}" />
+    <link href="../../style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="https://angelicagardner.github.io/paper-collection/">Back to Main Table</a></h1>
+    </header>
+    <main>
+        <article>
+            <h2>{{ title }}</h2>
+            <p><strong>Year:</strong> {{ year }}</p>
+            <p><strong>Labels:</strong>
+                {% for label in labels %}
+                <span class="label">{{ label }}</span>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <div class="content">
+                {{ content | safe }}
+            </div>
+        </article>
+    </main>
+</body>
+</html>
