@@ -26,7 +26,7 @@ Each summary file follows the structure of `papers/_example.md`.
 
 ## Label System
 
-The repository uses labels to categorize papers consistently across three main dimensions:
+The repository uses labels to categorize papers consistently:
 
 ### 1. Research Type 🟦
 
@@ -35,7 +35,7 @@ Indicates what kind of scientific contribution the paper makes.
 | Type	| Description |	Example Keywords |
 | --- | --- | --- | 
 | Theoretical	| Develops models, frameworks, or formal proofs without direct experimentation.	| Algorithms, models, formal methods |
-| Empirical / Case Study | Based on observation, measurement, experimentation, or data collection.	| Case study, benchmark, survey, measurement |
+| Empirical / Case Study | Based on observation, measurement, experimentation, or data collection. | Case study, benchmark, survey, measurement |
 | Design / Tool	| Proposes a new system, method, or tool and demonstrates or evaluates it. | Architecture, prototype, implementation |
 | Conceptual / Position |	Introduces new ideas or perspectives; may argue a viewpoint without empirical data.	| Vision paper, manifesto |
 | Survey / Review	| Synthesizes and compares existing research on a topic. | Literature review, mapping study |
@@ -44,7 +44,7 @@ Indicates what kind of scientific contribution the paper makes.
 
 Describes how and where the paper was published.
 
-| Type | Description| 
+| Type | Description | 
 | --- | --- |
 | Journal Article | Peer-reviewed research published in a scientific journal. |
 | Conference Paper | Peer-reviewed research presented at a scientific conference. |
