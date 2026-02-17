@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Anycast as a Load Balancing feature</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="# Anycast as a Load Balancing feature" />
+    <link href="../../style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="https://angelicagardner.github.io/paper-collection/">Back to Main Table</a></h1>
+    </header>
+    <main>
+        <article>
+            <h2>Anycast as a Load Balancing feature</h2>
+            <p><strong>Year:</strong> 2010</p>
+            <p><strong>Labels:</strong>
+                
+                <span class="label">loadbalancer</span>, 
+                
+                <span class="label">backend</span>, 
+                
+                <span class="label">latency</span>
+                
+            </p>
+            <div class="content">
+                <h1>Anycast as a Load Balancing feature</h1>
+
+<p><strong>Author(s):</strong> Fernanda Weiden and Peter Frost</p>
+
+<p><strong>Paper URL:</strong> https://dl.acm.org/doi/10.5555/1924976.1925002</p>
+
+<p><strong>Pages:</strong> 4</p>
+
+<p><strong>Summary:</strong> This paper explores Anycast as a load balancing method in distributed systems. By routing users to the nearest healthy instance, Anycast enables fast failover and seamless recovery during outages. The paper highlights how Anycast outperforms DNS-based solutions in speed, reliability, and scalability for global deployments.</p>
+
+<h2>Sections Summary</h2>
+
+<h3><code>Introduction</code></h3>
+
+<ul>
+<li>Traditional load balancing (LB) architectures typically involve deploying multiple replicas of a service and using a LB to distribute user traffic among them.</li>
+<li>The traditional setup improves scalability and availability but can't handle backend service instance failures.</li>
+<li>Enhanced LB design address this by incorporating failover mechanisms that automatically redirect user requests to the nearest secondary location when a primary backend fails. However, if the LBs themselves fail, users lose access to alternate service instances entirely.</li>
+<li>Ensuring uninterrupted user access is a critical design priority.</li>
+<li>One common solution is to update DNS records to redirect traffic to other service locations. While technically feasible, DNS-based failover introduces challenges such as TTL propagation delays, increased downtime, and the operational burden of reverting records once the original location recovers.</li>
+<li>A more seamless and efficient approach is to embed monitoring and failover capabilities directly into the LB infrastructure.</li>
+</ul>
+
+<h3><code>Basics of Anycast</code></h3>
+
+<ul>
+<li>Anycast is a routing method where multiple hosts share the same IP address, and user traffic is directed to the nearest host based on network topology.</li>
+<li>It is effective when all hosts deliver the same service, ensuring users are connected to the closest available instance.</li>
+<li>However, Anycast lacks built-in service health awareness. Since routing is handled by Border Gateway Protocol (BGP), which only considers network paths (not service status), traffic may be routed to an unhealthy instance if it continues to advertise the IP, posing a reliability risk.</li>
+</ul>
+
+<h3><code>Our implementation</code></h3>
+
+<ul>
+<li>The system leverages BGP to build a hierarchical route advertisement structure, eliminating the need for proxy-based failover. This not only preserves client identity (unlike proxies) but also reduces latency and overhead.</li>
+<li>Load balancing is designed as a shared infrastructure, supporting multiple services without increasing network complexity or configuration overhead.</li>
+<li>To make Anycast service-aware, the LBs perform application-level health checks (using ldirectord). When all local service backends become unavailable, the load balancer withdraws the Anycast IP via BGP. This stops route advertisements from that location, prompting the network to automatically reroute users to the next nearest healthy instance.</li>
+<li>A dedicated subnet is reserved for all Anycast Virtual IPs (VIPs).</li>
+<li>Routers are configured to accept only /32 route advertisements from LBs within this subnet, with Access Control Lists (ACLs) in place to prevent route hijacking or misconfiguration.</li>
+<li>Anycast and traditional VIPs can be configured side-by-side on the same LB infrastructure, allowing flexible service deployment without architectural changes.</li>
+</ul>
+
+<h3><code>Software used for this implementation</code></h3>
+
+<ul>
+<li>Load Balancers are deployed in HA pairs to ensure resilience against single-machine failures.</li>
+<li>Heartbeat (from the Linux-HA project) manages HA, ensuring one LB takes over if the other fails.</li>
+<li>ldirectord performs health checks on backend servers and adds/removes them from the LB pool. It also controls the Anycast IP — bringing it up or down based on server health.</li>
+<li>ip_vs (Linux kernel module) handles actual load balancing using Direct Routing (DR) mode.</li>
+<li>Quagga runs BGP on the LBs, letting them advertise or withdraw service routes dynamically.</li>
+<li>When all backends for a service fail, ldirectord disables the Anycast IP and Quagga withdraws the route, preventing user traffic from reaching a failed site.</li>
+</ul>
+
+<h3><code>Adding new services to the setup</code></h3>
+
+<ul>
+<li>New services can be integrated easily by configuring their backends as VIPs (Virtual IPs) on an Anycast-enabled LB. This requires only minimal changes to the Heartbeat and ldirectord configurations.</li>
+<li>Expanding a service to a new geographic location follows the same configuration process. Thanks to Anycast, users are automatically routed to the nearest available LB with no need for manual traffic management.</li>
+</ul>
+
+<h3><code>Failure modes and recovery times</code></h3>
+
+<ul>
+<li>Recovery behavior is specific to this Anycast setup and may vary depending on system configurations and timeout values.</li>
+<li>BGP route propagation is fast, typically under 1 second.</li>
+<li>The router dead timer is set to 30 seconds, which defines the time required to detect a lost BGP peer.</li>
+<li>If all service backends fail, recovery time = health check interval + &lt;1 second BGP update</li>
+<li>In the event of a total failure (e.g., power or network outage at a location), recovery time = 30-second dead timer + &lt;1 second BGP propagation</li>
+</ul>
+
+<h2>Questions/Discussion Points</h2>
+
+<ul>
+<li>Network topology means that routing decisions are made based on the structure of the network. "Nearest" doesn't necessary mean geographically closets but topologically closets so the host can be reached with the fewest number of network hops, lowest latency or fastest route throuogh the network infrastructure.</li>
+<li>Border Gateway Protocol is the core routing protocol of the internet, responsible for how data is routed between different networks. BGP decides the best path for data to travel across the internet and is used by Internet Service Providers (ISPs), data centers, and large enterprises to exchange routing information. In Anycast, BGP is used to advertise the same IP address from multiple locations, allowing routers to direct users.</li>
+</ul>
+
+            </div>
+        </article>
+    </main>
+</body>
+</html>

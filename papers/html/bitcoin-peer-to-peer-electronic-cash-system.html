@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Bitcoin: A Peer-to-Peer Electronic Cash System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="# Bitcoin: A Peer-to-Peer Electronic Cash System" />
+    <link href="../../style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="https://angelicagardner.github.io/paper-collection/">Back to Main Table</a></h1>
+    </header>
+    <main>
+        <article>
+            <h2>Bitcoin: A Peer-to-Peer Electronic Cash System</h2>
+            <p><strong>Year:</strong> 2008</p>
+            <p><strong>Labels:</strong>
+                
+                <span class="label">cryptocurrency</span>
+                
+            </p>
+            <div class="content">
+                <h1>Bitcoin: A Peer-to-Peer Electronic Cash System</h1>
+
+<p><strong>Author(s):</strong> Satoshi Nakamoto</p>
+
+<p><strong>Paper URL:</strong> https://bitcoin.org/bitcoin.pdf</p>
+
+<p><strong>Pages:</strong> 8</p>
+
+<p><strong>Summary:</strong> This paper proposes a decentralized digital currency that allows people to send payments directly to each other without relying on banks. It introduces a public ledger called the blockchain and uses a consensus mechanism called proof-of-work to prevent double-spending and ensure transaction security. The suggested system removes the need for trusted third parties and creates a limited-supply, peer-to-peer electronic cash network.</p>
+
+<h2>Sections Summary</h2>
+
+<h3><code>1. Introduction</code></h3>
+
+<ul>
+<li><p>Current internet commerce relies on "trusted" financial institutions that act as intermediaries</p></li>
+<li><p>This paper argues we need a system based on cryptographic proof so two parties can transact directly without a middleman.</p></li>
+<li><p>To prevent "double-spending" without a central authority, the paper proposes a distributed peer-to-peer server that generates a public, chronological record of transactions secured by the network's collective CPU power.</p></li>
+</ul>
+
+<h3><code>2. Transactions</code></h3>
+
+<ul>
+<li><p>An electronic coin is defined as a chain of digital signatures where owners transfer value by signing a hash of the previous transaction, though this technical verification alone cannot prove that an owner hasn't already spent the coin elsewhere.</p></li>
+<li><p>Relying on a central authority (a "mint") to prevent double-spending creates a single point of failure where the fate of the entire system depends on the company running it.</p></li>
+<li><p>To eliminate the central authority, all transactions must be publicly announced so that the entire network can agree on a single, chronological history of transactions based on which one the majority of nodes received first.</p></li>
+</ul>
+
+<h3><code>3. Timestamp Server</code></h3>
+
+<ul>
+<li><p>The system creates a record of when data existed by taking a hash of a block of items and widely publishing it.</p></li>
+<li><p>Each new timestamp incorporates the previous timestamp within its own hash, creating a continuous chain where every additional block strengthens and validates the chronological order of all preceding entries.</p></li>
+<li><p>Bitcoin uses this "Hash Chain" to ensure that once a "timestamp" (block) is published, the history cannot be changed without changing every subsequent hash in the system.</p></li>
+</ul>
+
+<h3><code>4. Proof-of-Work</code></h3>
+
+<ul>
+<li><p>To implement the timestamp server in a Peer-to-Peer system (where there is no leader), a proof-of-work system is needed.</p></li>
+<li><p>To prevent fraudulent voting from taking over the network by simply creating thousands of fake identities (a "Sybil attack"), the paper establishes a "one-CPU-one-vote" system where nodes must prove they expended actual energy to validate a block.</p></li>
+<li><p>Finding a valid block requires solving a difficult mathematical puzzle which makes the chain immutable because an attacker would have to redo the work for every subsequent block to change a single past transaction (i.e. impossible as long as honest nodes control the majority of CPU power).</p></li>
+</ul>
+
+<h3><code>5. Network</code></h3>
+
+<ul>
+<li><p>New transactions are broadcast to all nodes, and each node collects these into a candidate block.</p></li>
+<li><p>Every node works on finding the difficult Proof-of-Work for its block; the first node to solve the puzzle broadcasts its successful block to the entire network.</p></li>
+<li><p>Nodes accept the block only if all transactions inside it are valid and not already spent.</p></li>
+<li><p>Nodes always consider the longest chain (with the most proof-of-work) to be the correct one and will switch to a longer branch if it appears, ensuring the network eventually converges on a single history.</p></li>
+</ul>
+
+<h3><code>6. Incentive</code></h3>
+
+<ul>
+<li><p>The incentive answers why anyone would spend on electricity and hardware to secure a network they don't own.</p></li>
+<li><p>The first transaction in every block is a special transaction that creates new coins for the node that found the block (mining).</p></li>
+<li><p>Once the total supply is reached, the incentive shifts to transaction fees.</p></li>
+<li><p>The incentive is designed to make attacking the network less profitable than following the rules. </p></li>
+</ul>
+
+<h3><code>7. Reclaiming Disk Space</code></h3>
+
+<ul>
+<li>Once a transaction is "buried" under enough blocks and its coins are spent, the raw data for that transaction is no longer strictly needed to verify future blocks and can be discarded to save space.</li>
+</ul>
+
+<h3><code>8. Simplified Payment Verification</code></h3>
+
+<ul>
+<li><p>"Lightweight" users don't need to download the entire multi-gigabyte blockchain, they only need to keep the 80-byte block headers of the longest chain to verify that a transaction has been accepted by the network.</p></li>
+<li><p>SPV is less secure than running a full node because you are trusting that the "Longest Chain" you see is the honest one. Therefore, it's recommended in the paper that businesses that receive frequent payments run their own nodes.</p></li>
+</ul>
+
+<h3><code>9. Combining and Splitting Value</code></h3>
+
+<ul>
+<li><p>To avoid the inefficiency of sending 100 separate transactions for small amounts, the protocol allows a single transaction to contain multiple inputs and outputs.</p></li>
+<li><p>History is decoupled so a user never needs to download or extract the complete, standalone history of every single branch to verify their own current transaction. Since each is independent, many transactions can be processed in parallel.</p></li>
+</ul>
+
+<h3><code>10. Privacy</code></h3>
+
+<ul>
+<li><p>In traditional banking the ledger is kept private and only the parties involved see the data. In Bitcoin, the ledger is public.</p></li>
+<li><p>While the entire network can see that an amount of money moved from one address to another, they cannot see who those addresses belong to because public keys are kept anonymous.</p></li>
+</ul>
+
+<h3><code>11. Calculations</code></h3>
+
+<ul>
+<li><p>This section is an example of Formal Verification in distributed systems.</p></li>
+<li><p>It mathematically proves that the cost of the electricity and hardware needed to attempt an attack is higher than the expected gain.</p></li>
+</ul>
+
+<h2>Questions/Discussion Points</h2>
+
+<ul>
+<li>Gap between Satoshi's vision and the current industry reality: 
+<ul>
+<li>Many users don't manage their own private keys but keep their Bitcoin on a centralized exchange or a managed wallet, which is basically using a "trusted third party"?</li>
+</ul></li>
+<li>Central banks can print more money which devalues the currency you already hold. Bitcoin solves this with a fixed supply (21 million). Bitcoin was designed to solve monetary debasement (printing money), not market fluctuations (people changing their minds about what it's worth). So the bitcoin is still vulnerable to wealth decreasing (because of value fall on stock market).</li>
+<li>Could be interesting to read "The Bitcoin Backbone Protocol" or a paper on Ethereum's architecture as follow-up.</li>
+</ul>
+
+            </div>
+        </article>
+    </main>
+</body>
+</html>
