@@ -60,3 +60,7 @@ Used for filtering or sorting papers by publication context e.g., ACM, IEEE, Spr
 ### 4. Domain & Topic Labels 🟥
 
 These describe the content of the paper e.g., observability, monitoring, cloud native, scalability, telecom.
+
+## Disclaimer
+
+This repository is licensed under the [MIT License](LICENSE). All original conference talks, videos and links referenced in this repository are the intellectual property of their respective authors, speakers, and organizations. The summaries and "Key Takeaways" provided are my personal study notes and interpretations. They are intended for educational and research purposes under "Fair Use" principles. This repository does not host or redistribute original copyrighted files (video files).
