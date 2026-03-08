@@ -40,9 +40,22 @@ year: 2022
 
 ### `3. Methodology`
 
-- ...
+- Study duration was 4 months.
+
+- Qualitative research approach using interviews; 25 interviewees from 10 companies.
+
+- Companies cover 5 different domains: e-commerice, entertainment, finance, manufacture and ERP.
+
+- The procedure was divided into 3 parts: interview planning, interview process, and interview result analysis.
+
+- It was required that the interviewees were knowledgeable about distributed tracing practices and engineering.
+
+- Over 700 minutes of interview recordings were converted into text documents using speech recognition. Their own notes were combined with the text documents to complete the interview transcripts.
+
+- Some follow-up interviews were conducted to learn missing details.
 
 ### `4. Results`
+
 - ...
 
 ### `5. Discussion`
