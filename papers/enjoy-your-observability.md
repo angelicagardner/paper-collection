@@ -56,18 +56,33 @@ year: 2022
 
 ### `4. Results`
 
-- ...
+- Distributed tracing is less important for small microservice systems where number of services is small and invocation chains are short.
+
+- Their tracing and analysis pipeline implementations follow similar structures: logging, collection, preprocessing, storage and analysis.
+
+- Several pipeline implementations used a message bus to increase the reliability of log transmission and collection.
+
+- Several pipeline implementations used a stream computing engine to achieve real-time processing of trace data.
+
+- Large companies had a tendency to develop and maintain their own distributed tracing system instead of relying on open source solutions, due to strict requirements for reliability and performance of trace data processing as well as demand on customized trace analysis applications.
+
+- More advanced solutions such as tracing-framework-based logging and agent-based log collection relieve developers from the implementation of distributed tracing.
+
+- The companies widely follow the log content and format defined by the OpenTracing specification.
+
+- Preprocessing usually included data formatting, metric aggregation and tail-based sampling.
+
+- The huge amount of trace data has been the main challenge for trace analysis.
+
+- Service mesh is emerging as an alternative solution for microservice tracing. In this solution, developers don't need to care about the implementation of microservice tracing. None of the companies included in this survey used service mesh.
 
 ### `5. Discussion`
+
 - ...
 
 ### `6. Related Work`
 - ...
 
 ## Questions/Discussion Points
-
-- ...
-
-## Links/Resources
 
 - ...
