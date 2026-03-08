@@ -30,9 +30,16 @@ year: 2022
   
 ### `2. Background`
 
-- ...
+- Service invocation chains enable understanding runtime service dependencies and the execution process of the requests, which makes them important for modern distributed systems.
+
+- Trace = represents the total time a request takes as it moves through the entire system. It is identified by a unique Trace ID.
+
+- Span = represents a specific operation within that journey. Every span has a start time, a duration, and a Span ID.
+
+- Logs, traces and metrics are the pillars of observability. Logs include application logs, system logs, and span logs. Traces are produced by the distributed tracing system and restored from span logs. Metrics include both application metrics and system metrics.
 
 ### `3. Methodology`
+
 - ...
 
 ### `4. Results`
