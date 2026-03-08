@@ -83,7 +83,10 @@ year: 2022
 - New challenges and opportunities presented include adaptive log sampling, data fusion for trace analysis, more intelligent trace analysis and business intelligence by trace analysis.
 
 ### `6. Related Work`
-- ...
+
+- Previous work has either focused on legacy systems, on specific aspects of trace analysis or investigated the industry practice but without discussing distributed tracing in depth.
+
+- This study is the first empirical study on distributed tracing. It provides introduces the practices of distributed tracing in microservice systems, a detailed introduction of trace analysis in the industry and summarizes the problems and challenges that still remain.
 
 ## Questions/Discussion Points
 
