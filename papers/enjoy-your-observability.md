@@ -78,11 +78,13 @@ year: 2022
 
 ### `5. Discussion`
 
-- ...
+- This survey indicates that microservice tracing and analysis is a new big data problem for software engineering.
+
+- New challenges and opportunities presented include adaptive log sampling, data fusion for trace analysis, more intelligent trace analysis and business intelligence by trace analysis.
 
 ### `6. Related Work`
 - ...
 
 ## Questions/Discussion Points
 
-- ...
+- In the results section (4) the authors mention the main challenge as the huge amount of trace data - but in the conclusion they mention the quality of data, the lack of trace data annotation and the ever-changing nature of microservice architecture as the main difficulties.
