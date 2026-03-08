@@ -17,9 +17,19 @@ year: 2022
 ## Sections Summary
 
 ### `1. Introduction`
-- ...
+
+- Microservice systems may include hundreds to thousands services running in cloud infrastructure with service instances being created/destroyed dynamically. The run-time environments can exist of a mix of physical machines, virtual machines and containers.
+
+- Distributed tracing is an important means to achieve observability in microservice architecture by tracing requests as they flow between services.
+
+- The OpenTracing project provides a language-neutral data model for distributed tracing, defining basic concepts such as span and trace.
+
+- A large microservice system may produce up to trillions of traces per second and each trace may involve a complex invocation chain spanning many services and even multiple data centers.
+
+- The trace analysis following need to meet different purposes such as anomaly detection, fault analysis and debugging.
   
 ### `2. Background`
+
 - ...
 
 ### `3. Methodology`
