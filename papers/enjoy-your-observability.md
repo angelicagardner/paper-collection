@@ -26,7 +26,7 @@ year: 2022
 
 - A large microservice system may produce up to trillions of traces per second and each trace may involve a complex invocation chain spanning many services and even multiple data centers.
 
-- The trace analysis following need to meet different purposes such as anomaly detection, fault analysis and debugging.
+- The trace analysis need to meet different purposes such as anomaly detection, fault analysis and debugging.
   
 ### `2. Background`
 
@@ -44,7 +44,7 @@ year: 2022
 
 - Qualitative research approach using interviews; 25 interviewees from 10 companies.
 
-- Companies cover 5 different domains: e-commerice, entertainment, finance, manufacture and ERP.
+- Companies cover 5 different domains: e-commerice, entertainment, finance, manufacture and Enterprise Resource Planning (ERP).
 
 - The procedure was divided into 3 parts: interview planning, interview process, and interview result analysis.
 
@@ -86,8 +86,10 @@ year: 2022
 
 - Previous work has either focused on legacy systems, on specific aspects of trace analysis or investigated the industry practice but without discussing distributed tracing in depth.
 
-- This study is the first empirical study on distributed tracing. It provides introduces the practices of distributed tracing in microservice systems, a detailed introduction of trace analysis in the industry and summarizes the problems and challenges that still remain.
+- This study is the first empirical study on distributed tracing. It introduces the practices of distributed tracing in microservice systems, provides a detailed introduction of trace analysis in the industry and summarizes the problems and challenges that still remain.
 
 ## Questions/Discussion Points
 
-- In the results section (4) the authors mention the main challenge as the huge amount of trace data - but in the conclusion they mention the quality of data, the lack of trace data annotation and the ever-changing nature of microservice architecture as the main difficulties.
+- In the results section the authors mention the main challenge as the huge amount of trace data - but in the conclusion section they mention the quality of data, the lack of trace data annotation and the ever-changing nature of microservice architecture as the main difficulties?
+
+- 2026 perspective: Since late 2023, OpenTracing has been fully deprecated and moved to "archive" status by the CNCF. Major cloud providers and vendors (such as Grafana, Jaeger, Datadog) now supports OTLP (OpenTelemetry Protocol) as their primary ingestion method. The paper focuses heavily on the "Tracing" aspect of OpenTracing. In 2026, the industry has moved to Unified Observability as OpenTelemetry manages Traces, Metrics, and Logs under one API.
