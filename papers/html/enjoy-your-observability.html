@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Enjoy your observability: an industrial survey of microservice tracing and analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="# Enjoy your observability: an industrial survey of microservice tracing and analysis" />
+    <link href="../../style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="https://angelicagardner.github.io/paper-collection/">Back to Main Table</a></h1>
+    </header>
+    <main>
+        <article>
+            <h2>Enjoy your observability: an industrial survey of microservice tracing and analysis</h2>
+            <p><strong>Year:</strong> 2022</p>
+            <p><strong>Labels:</strong>
+                
+                <span class="label">microservices</span>, 
+                
+                <span class="label">observability</span>, 
+                
+                <span class="label">tracing</span>
+                
+            </p>
+            <div class="content">
+                <h1>Enjoy your observability: an industrial survey of microservice tracing and analysis</h1>
+
+<p><strong>Author(s):</strong> Bowen Li, Xin Peng, Qilin Xiang, Hanzhang Wang, Tao Xie, Jun Sun, and Xuanzhe Liu</p>
+
+<p><strong>Paper URL:</strong> https://dl.acm.org/doi/10.1007/s10664-021-10063-9</p>
+
+<p><strong>Pages:</strong> 28</p>
+
+<p><strong>Summary:</strong> This paper is an industrial survey interviewing developers and operation engineers from 10 companies about how they have implemented microservice tracing and analysis. The results provides input to clarify whether the existing approaches fulfill required observability.</p>
+
+<h2>Sections Summary</h2>
+
+<h3><code>1. Introduction</code></h3>
+
+<ul>
+<li><p>Microservice systems may include hundreds to thousands services running in cloud infrastructure with service instances being created/destroyed dynamically. The run-time environments can exist of a mix of physical machines, virtual machines and containers.</p></li>
+<li><p>Distributed tracing is an important means to achieve observability in microservice architecture by tracing requests as they flow between services.</p></li>
+<li><p>The OpenTracing project provides a language-neutral data model for distributed tracing, defining basic concepts such as span and trace.</p></li>
+<li><p>A large microservice system may produce up to trillions of traces per second and each trace may involve a complex invocation chain spanning many services and even multiple data centers.</p></li>
+<li><p>The trace analysis need to meet different purposes such as anomaly detection, fault analysis and debugging.</p></li>
+</ul>
+
+<h3><code>2. Background</code></h3>
+
+<ul>
+<li><p>Service invocation chains enable understanding runtime service dependencies and the execution process of the requests, which makes them important for modern distributed systems.</p></li>
+<li><p>Trace = represents the total time a request takes as it moves through the entire system. It is identified by a unique Trace ID.</p></li>
+<li><p>Span = represents a specific operation within that journey. Every span has a start time, a duration, and a Span ID.</p></li>
+<li><p>Logs, traces and metrics are the pillars of observability. Logs include application logs, system logs, and span logs. Traces are produced by the distributed tracing system and restored from span logs. Metrics include both application metrics and system metrics.</p></li>
+</ul>
+
+<h3><code>3. Methodology</code></h3>
+
+<ul>
+<li><p>Study duration was 4 months.</p></li>
+<li><p>Qualitative research approach using interviews; 25 interviewees from 10 companies.</p></li>
+<li><p>Companies cover 5 different domains: e-commerice, entertainment, finance, manufacture and Enterprise Resource Planning (ERP).</p></li>
+<li><p>The procedure was divided into 3 parts: interview planning, interview process, and interview result analysis.</p></li>
+<li><p>It was required that the interviewees were knowledgeable about distributed tracing practices and engineering.</p></li>
+<li><p>Over 700 minutes of interview recordings were converted into text documents using speech recognition. Their own notes were combined with the text documents to complete the interview transcripts.</p></li>
+<li><p>Some follow-up interviews were conducted to learn missing details.</p></li>
+</ul>
+
+<h3><code>4. Results</code></h3>
+
+<ul>
+<li><p>Distributed tracing is less important for small microservice systems where number of services is small and invocation chains are short.</p></li>
+<li><p>Their tracing and analysis pipeline implementations follow similar structures: logging, collection, preprocessing, storage and analysis.</p></li>
+<li><p>Several pipeline implementations used a message bus to increase the reliability of log transmission and collection.</p></li>
+<li><p>Several pipeline implementations used a stream computing engine to achieve real-time processing of trace data.</p></li>
+<li><p>Large companies had a tendency to develop and maintain their own distributed tracing system instead of relying on open source solutions, due to strict requirements for reliability and performance of trace data processing as well as demand on customized trace analysis applications.</p></li>
+<li><p>More advanced solutions such as tracing-framework-based logging and agent-based log collection relieve developers from the implementation of distributed tracing.</p></li>
+<li><p>The companies widely follow the log content and format defined by the OpenTracing specification.</p></li>
+<li><p>Preprocessing usually included data formatting, metric aggregation and tail-based sampling.</p></li>
+<li><p>The huge amount of trace data has been the main challenge for trace analysis.</p></li>
+<li><p>Service mesh is emerging as an alternative solution for microservice tracing. In this solution, developers don't need to care about the implementation of microservice tracing. None of the companies included in this survey used service mesh.</p></li>
+</ul>
+
+<h3><code>5. Discussion</code></h3>
+
+<ul>
+<li><p>This survey indicates that microservice tracing and analysis is a new big data problem for software engineering.</p></li>
+<li><p>New challenges and opportunities presented include adaptive log sampling, data fusion for trace analysis, more intelligent trace analysis and business intelligence by trace analysis.</p></li>
+</ul>
+
+<h3><code>6. Related Work</code></h3>
+
+<ul>
+<li><p>Previous work has either focused on legacy systems, on specific aspects of trace analysis or investigated the industry practice but without discussing distributed tracing in depth.</p></li>
+<li><p>This study is the first empirical study on distributed tracing. It introduces the practices of distributed tracing in microservice systems, provides a detailed introduction of trace analysis in the industry and summarizes the problems and challenges that still remain.</p></li>
+</ul>
+
+<h2>Questions/Discussion Points</h2>
+
+<ul>
+<li><p>In the results section the authors mention the main challenge as the huge amount of trace data - but in the conclusion section they mention the quality of data, the lack of trace data annotation and the ever-changing nature of microservice architecture as the main difficulties?</p></li>
+<li><p>2026 perspective: Since late 2023, OpenTracing has been fully deprecated and moved to "archive" status by the CNCF. Major cloud providers and vendors (such as Grafana, Jaeger, Datadog) now supports OTLP (OpenTelemetry Protocol) as their primary ingestion method. The paper focuses heavily on the "Tracing" aspect of OpenTracing. In 2026, the industry has moved to Unified Observability as OpenTelemetry manages Traces, Metrics, and Logs under one API.</p></li>
+</ul>
+
+            </div>
+        </article>
+    </main>
+</body>
+</html>
