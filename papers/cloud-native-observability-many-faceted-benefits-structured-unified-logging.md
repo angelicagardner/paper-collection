@@ -70,11 +70,25 @@ year: 2022
 
 ### `6. Discussion`
 
-- ...
+- Lessons learned included:
+	- Use log levels and don't just log errors.
+	- Apps should never handle log routing but rely on the runtime environment to move data.
+	- Push parent metadata into child events to achieve context injection. While this increases storage size, it makes searching and correlating data in the database much easier.
+	- Don't calculate averages or medians in the code.
+
+- Study Limitations (Threats to Validity) included:
+	- The authors focused on logs and metrics while distributed tracing was only analyzed marginally.
+	- The approach is not suitable for hard real-time systems with latency constraints.
+	- The results are limited to Python 3 and the ELK stack.
+	- The authors did not push the system until it broke so the absolute limit is unknown - tests reached 10,000 events per minute.
 
 ### `7. Related Work`
 
-- ...
+- Companies like Datadog, Dynatrace, and New Relic already offer unified observability. However, these are expensive managed services. The research prototype (log12) aims to solve the problem at the instrumentation level (in the code) using a lightweight, open approach.
+
+- OTel and Service Meshes, like Istio, have a major advantage with auto-instrumentation. These tools can inject monitoring into an app without the developer writing any code which is a feature the log12 prototype lacks.
+
+- The author notes that most academic papers are narrow—focusing only on one thing like log parsing or security whereas this study looks from a holistic view of distributed systems.
 
 ## Questions/Discussion Pointsd
 
@@ -88,6 +102,8 @@ year: 2022
 
 - This wasn't a controlled experiment, i.e. one team would have used OpenTelemetry and another used the "Unified Logging Prototype" on the same task. => difficult to prove something is objectively better.
 
+- The log12 approach could perhaps be a solution for systems that are too big for basic print statements but too small for the massive overhead of an enterprise OpenTelemetry setup.
+
 ## Links/Resources
 
-- ...
+- [The Prototype Logging Framework log12](https://github.com/nkratzke/log12)
