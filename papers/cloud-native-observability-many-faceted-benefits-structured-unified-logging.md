@@ -60,7 +60,13 @@ year: 2022
 
 ### `5. Evaluation of the Logging Prototype`
 
-- ...
+- UC1 & UC2: The researchers successfully visualized the "logs-turned-traces" in a Kibana dashboard.
+
+- UC3: This UC proved that infrastructure health can be tracked long-term using only the logging pipeline, i.e. structured logs can replace metrics.
+
+- UC4: Phase 1 was a 10-day test to see what Twitter/X looks like normally. They found that only 1 in 100 tweets mentioned a stock symbol. Phase 2 was a 6-month study focusing on specific financial symbols where they captured the massive Terra Luna crash in May 2022.
+
+- To summarize, the researchers are demonstrating that the source of the data doesn't matter, if it can be turned into a JSON object and pipe it to stdout, it can be observed.
 
 ### `6. Discussion`
 
