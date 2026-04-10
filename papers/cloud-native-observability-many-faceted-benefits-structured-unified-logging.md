@@ -26,13 +26,13 @@ year: 2022
   
 ### `2. Problem Description`
 
-- The fundamental problem: while we have better tools than ever, we’ve built "data silos" that make understanding complex systems harder than it needs to be.
+- The fundamental problem: while we have better tools than ever, we’ve built data silos that make understanding complex systems harder than it needs to be.
 
-- Because the three pillars (metrics, traces, logs) are treated as separate technologies, developers face a high "instrumentation tax."
+- Because the three pillars (metrics, traces, logs) are treated as separate technologies, developers face a high instrumentation tax.
 
 - The paper argues that logs, metrics, and traces are all just different forms of Time Series Analysis. The research question is: Can we simplify the process by using a unified instrumentation approach based on the simplest form (logs) and extend it to cover metrics and traces?
 
-- The author argues that OTel is a "unified protocol," while they are looking for a "unified mental model." Instead of, like OpenTelemetry, have a Metrics API + Traces API + Logs API - their approach suggests to just log a structured event (a JSON object to stdout). The devs don't decide if it's a metric or a trace at the code level; it's the observability pipeline that later decide if that log should be counted as a metric or linked as a trace.
+- The author argues that OTel is a unified protocol, while they are looking for a unified mental model. Instead of, like OpenTelemetry, have a Metrics API + Traces API + Logs API - their approach suggests to just log a structured event (a JSON object to stdout). The devs don't decide if it's a metric or a trace at the code level; it's the observability pipeline that later decide if that log should be counted as a metric or linked as a trace.
 
 ### `3. Methodology`
 
@@ -40,7 +40,7 @@ year: 2022
 
 - The research followed a four-step iterative cycle: Diagnosis, Prototyping, Evaluation, Learning Transfer.
 
-- The researchers tested their "unified logging" theory across four distinct use cases:
+- The researchers tested their unified logging theory across four distinct use cases:
 	- UC1 (Qualitative) with basic events in an online code editor.
 	- UC2 (Distributed Tracing) by tracking events across multiple services in the same code editor.
 	- UC3 (Quantitative) by monitoring infrastructure data from a Kubernetes platform.
@@ -88,19 +88,19 @@ year: 2022
 
 - OTel and Service Meshes, like Istio, have a major advantage with auto-instrumentation. These tools can inject monitoring into an app without the developer writing any code which is a feature the log12 prototype lacks.
 
-- The author notes that most academic papers are narrow—focusing only on one thing like log parsing or security whereas this study looks from a holistic view of distributed systems.
+- The author notes that most academic papers are narrow focusing only on one thing like log parsing or security whereas this study looks from a holistic view of distributed systems.
 
 ## Questions/Discussion Pointsd
 
 - The researchers intended to test the unified logging solution by tracking financial symbols ($USD, $AAPL) on Twitter/X and accidentally captured the 2022 "crypto winter." This was not part of their core thesis. 
 
-- While stdout is simple it can become a bottleneck (since writing to stdout is a "blocking" operation in some languages/environments) or lead to massive storage costs if not filtered aggressively.
+- While stdout is simple it can become a bottleneck (since writing to stdout is a blocking operation in some languages/environments) or lead to massive storage costs if not filtered aggressively.
 
 - OTel is good at context propagation, doing this through manual logging (where the dev must call .inject()) is more risk of broken traces (missing context) due to human error.
 
-- Critique towards the Action Research methodology is that people doing the research are often the ones building the tool which can lead to "confirmation bias" because the researchers want their prototype to work so they might subconsciously interpret the data in a way that favors their theory.
+- Critique towards the Action Research methodology is that people doing the research are often the ones building the tool which can lead to confirmation bias because the researchers want their prototype to work so they might subconsciously interpret the data in a way that favors their theory.
 
-- This wasn't a controlled experiment, i.e. one team would have used OpenTelemetry and another used the "Unified Logging Prototype" on the same task. => difficult to prove something is objectively better.
+- This wasn't a controlled experiment, i.e. one team would have used OpenTelemetry and another used log12 on the same task => difficult to prove one way is objectively better.
 
 - The log12 approach could perhaps be a solution for systems that are too big for basic print statements but too small for the massive overhead of an enterprise OpenTelemetry setup.
 
