@@ -59,15 +59,43 @@ year: 2024
 
 ### `4. Deployment Tracking`
 
-- ...
+- This section details the Deployment Tracking design pattern, which addresses the gap between identifying a system failure and finding its root cause.
+
+- The Problem: Metrics show what is failing (effects), but not why (causes). When anomalies occur, teams often struggle to determine if a recent change triggered the issue.
+
+- The Solution: Every production change, code releases, environment variable updates, or infrastructure scaling must be recorded as a Deployment Record and overlaid directly onto system metric dashboards.
+
+- Benefits of this pattern:
+    - Faster troubleshooting
+    - Increased team confidence in the deployments
+    - Allows business insights
+
+- Drawbacks of this pattern:
+    - Only effective if the team already has metric collection and visualization system.
+    - Not all monitoring tools support drawing vertical markers or binary metrics over time-series graphs.
+
+- *Canary Releases* and *Infrastructure/App Metrics* are related patterns that should ideally be implemented before Deployment Tracking to provide the baseline data needed for correlation.
 
 ### `5. Exception Tracking`
 
-- ...
+- This section details the Exception Tracking design pattern, which formalizes how to handle unexpected system behaviors that standard logging often obscures.
+
+- The Problem: Standard log files are poor at handling exceptions because stack traces are multi-line with big files, making it difficult to de-duplicate recurring errors or track their resolution.
+
+- The Solution: Developers should use an Exception Tracking Library to forward uncaught exceptions to a centralized service. This service automatically aggregates similar errors, attaches context like stack traces and user actions, and manages the lifecycle of the fix.
+
+- Benefits of this pattern:
+    - Reduces MTTR (Mean Time to Repair)
+    - Cross-platform visibility
+    - Proactive fixing
+
+- Drawbacks of this pattern:
+    - Requires instrumenting the source code with external SDKs.
+    - Third-party SaaS tools or self-hosting a tracking server introduces new operational expenses.
 
 ## Questions/Discussion Points
 
-- ...
+- This paper was published in 2024, what happened later? More papers/patterns? 
 
 ## Links/Resources
 
