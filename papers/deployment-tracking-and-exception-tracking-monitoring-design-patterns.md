@@ -18,15 +18,44 @@ year: 2024
 
 ### `1. Introduction`
 
-- ...
+- The paper distinguishes between Observability and Monitoring using Newman’s definitions:
+    - Observability: A system characteristic, the ability to understand internal states via external outputs.
+    - Monitoring: A human activity, the act of keeping track of the system's health and performance.
+
+- Observability is cited as the 4th most common DevOps practice.
+
+- Transitioning from on-premises monoliths to cloud-native systems has changed how monitoring must be handled. There is a need for better ways to communicate and reuse modern monitoring practices across teams.
+
+- The authors propose documenting monitoring practices as design patterns to facilitate easier communication and more thoughtful implementation.
+
+- The paper refines previous work on monitoring patterns and introduces two new descriptions specifically focused on tracking system events.
   
 ### `2. Related Work`
 
-- ...
+- Existing documentation (like Richardson’s microservices patterns) often lacks formal structure or sufficient detail, making it difficult for practitioners to distinguish between context, forces, and consequences.
+
+- Log deployment is the 4th most common monitoring practice, particularly among experienced developers. The authors aim to formalize related "grey literature" examples, such as Etsy’s release tracking, into a rigorous design pattern.
+
+- Exception tracking is the 2nd most common monitoring practice, and it requires a specialized approach which is distinct from standard logging, to handle de-duplication and alerting. The paper formalizes this idea to make it accessible for less experienced engineers.
 
 ### `3. About the Patterns`
 
-- ...
+- The authors identify 11 practices categorized by their functional purpose:
+    1. Audit Logging: Recording user actions and system changes for compliance and security.
+    2. Structured Logging: Using a consistent format across all services to ensure logs are machine-readable and universally understood.
+    3. Log Sampling: Prioritizing and filtering logs to manage storage costs while retaining essential troubleshooting data.
+    4. Distributed Tracing: Assigning unique IDs to external requests to visualize their flow across micrcoservices.
+    5. Deployment Tracking (Featured in this paper): Logging every production change to correlate system anomalies with specific deployments.
+    6. Exception Tracking (Featured in this paper): Using a dedicated service to aggregate, alert, and manage the resolution of code exceptions.
+    7. Liveness Probes: Implementing endpoints to check if a service is running.
+    8. Readiness Probes: Implementing endpoints to check if a service is ready to accept traffic.
+    9. Synthetic Testing: Running a subset of tests against the production environment to catch issues before users do.
+    10. Application Metrics: Gathering business-level performance data into centralized dashboards for real-time insights.
+    11. Infrastructure Metrics: Gathering hardware-level performance data into centralized dashboards for real-time insights.
+
+- The paper focuses on Deployment Tracking and Exception Tracking for two reasons:
+    - They provide the event data needed to troubleshoot and find the root cause of system failures.
+    - The data captured by these patterns often serves as the foundation for broader application and infrastructure metrics.
 
 ### `4. Deployment Tracking`
 
@@ -42,4 +71,8 @@ year: 2024
 
 ## Links/Resources
 
-- ...
+- Previous work referenced that this paper builds on/continues:
+
+> Carlos Albuquerque. 2022. *Monitoring Design Patterns For Cloud Applications.* Master’s thesis. Faculty of Engineering, University of Porto. https://repositorio-aberto.up.pt/handle/10216/143462
+
+> Carlos Albuquerque, Kadu Relvas Barral, Filipe F Correia, and Kyle Brown. 2022. Proactive monitoring design patterns for cloud applications. In *Proceedings of the 25th European Conference on Pattern Languages of Programs*. ACM, Irsee, Germany, 21.
