@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Deployment Tracking and Exception Tracking: monitoring design patterns for cloud-native applications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="# Deployment Tracking and Exception Tracking: monitoring design patterns for cloud-native applications" />
+    <link href="../../style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1><a href="https://angelicagardner.github.io/paper-collection/">Back to Main Table</a></h1>
+    </header>
+    <main>
+        <article>
+            <h2>Deployment Tracking and Exception Tracking: monitoring design patterns for cloud-native applications</h2>
+            <p><strong>Year:</strong> 2024</p>
+            <p><strong>Labels:</strong>
+                
+                <span class="label">monitoring</span>, 
+                
+                <span class="label">design patterns</span>, 
+                
+                <span class="label">devops</span>, 
+                
+                <span class="label">observability</span>, 
+                
+                <span class="label">cloud native</span>
+                
+            </p>
+            <div class="content">
+                <h1>Deployment Tracking and Exception Tracking: monitoring design patterns for cloud-native applications</h1>
+
+<p><strong>Author(s):</strong> Carlos Albuquerque and Filipe F. Correia</p>
+
+<p><strong>Paper URL:</strong> https://dl.acm.org/doi/10.1145/3628034.3628038</p>
+
+<p><strong>Pages:</strong> 10</p>
+
+<p><strong>Summary:</strong> This paper introduces <strong>Deployment Tracking</strong> and <strong>Exception Tracking</strong> as two design patterns to improve the observability of cloud-native architectures. It is following a previously published paper about design patterns for CN, distributed systems. These patterns help development teams quickly isolate the root causes of anomalies and reduce the mean time to resolution (MTTR).</p>
+
+<h2>Sections Summary</h2>
+
+<h3><code>1. Introduction</code></h3>
+
+<ul>
+<li><p>The paper distinguishes between Observability and Monitoring using Newman’s definitions:</p>
+
+<ul>
+<li>Observability: A system characteristic, the ability to understand internal states via external outputs.</li>
+<li>Monitoring: A human activity, the act of keeping track of the system's health and performance.</li>
+</ul></li>
+<li><p>Observability is cited as the 4th most common DevOps practice.</p></li>
+<li><p>Transitioning from on-premises monoliths to cloud-native systems has changed how monitoring must be handled. There is a need for better ways to communicate and reuse modern monitoring practices across teams.</p></li>
+<li><p>The authors propose documenting monitoring practices as design patterns to facilitate easier communication and more thoughtful implementation.</p></li>
+<li><p>The paper refines previous work on monitoring patterns and introduces two new descriptions specifically focused on tracking system events.</p></li>
+</ul>
+
+<h3><code>2. Related Work</code></h3>
+
+<ul>
+<li><p>Existing documentation (like Richardson’s microservices patterns) often lacks formal structure or sufficient detail, making it difficult for practitioners to distinguish between context, forces, and consequences.</p></li>
+<li><p>Log deployment is the 4th most common monitoring practice, particularly among experienced developers. The authors aim to formalize related "grey literature" examples, such as Etsy’s release tracking, into a rigorous design pattern.</p></li>
+<li><p>Exception tracking is the 2nd most common monitoring practice, and it requires a specialized approach which is distinct from standard logging, to handle de-duplication and alerting. The paper formalizes this idea to make it accessible for less experienced engineers.</p></li>
+</ul>
+
+<h3><code>3. About the Patterns</code></h3>
+
+<ul>
+<li><p>The authors identify 11 practices categorized by their functional purpose:</p>
+
+<ol>
+<li>Audit Logging: Recording user actions and system changes for compliance and security.</li>
+<li>Structured Logging: Using a consistent format across all services to ensure logs are machine-readable and universally understood.</li>
+<li>Log Sampling: Prioritizing and filtering logs to manage storage costs while retaining essential troubleshooting data.</li>
+<li>Distributed Tracing: Assigning unique IDs to external requests to visualize their flow across micrcoservices.</li>
+<li>Deployment Tracking (Featured in this paper): Logging every production change to correlate system anomalies with specific deployments.</li>
+<li>Exception Tracking (Featured in this paper): Using a dedicated service to aggregate, alert, and manage the resolution of code exceptions.</li>
+<li>Liveness Probes: Implementing endpoints to check if a service is running.</li>
+<li>Readiness Probes: Implementing endpoints to check if a service is ready to accept traffic.</li>
+<li>Synthetic Testing: Running a subset of tests against the production environment to catch issues before users do.</li>
+<li>Application Metrics: Gathering business-level performance data into centralized dashboards for real-time insights.</li>
+<li>Infrastructure Metrics: Gathering hardware-level performance data into centralized dashboards for real-time insights.</li>
+</ol></li>
+<li><p>The paper focuses on Deployment Tracking and Exception Tracking for two reasons:</p>
+
+<ul>
+<li>They provide the event data needed to troubleshoot and find the root cause of system failures.</li>
+<li>The data captured by these patterns often serves as the foundation for broader application and infrastructure metrics.</li>
+</ul></li>
+</ul>
+
+<h3><code>4. Deployment Tracking</code></h3>
+
+<ul>
+<li><p>This section details the Deployment Tracking design pattern, which addresses the gap between identifying a system failure and finding its root cause.</p></li>
+<li><p>The Problem: Metrics show what is failing (effects), but not why (causes). When anomalies occur, teams often struggle to determine if a recent change triggered the issue.</p></li>
+<li><p>The Solution: Every production change, code releases, environment variable updates, or infrastructure scaling must be recorded as a Deployment Record and overlaid directly onto system metric dashboards.</p></li>
+<li><p>Benefits of this pattern:</p>
+
+<ul>
+<li>Faster troubleshooting</li>
+<li>Increased team confidence in the deployments</li>
+<li>Allows business insights</li>
+</ul></li>
+<li><p>Drawbacks of this pattern:</p>
+
+<ul>
+<li>Only effective if the team already has metric collection and visualization system.</li>
+<li>Not all monitoring tools support drawing vertical markers or binary metrics over time-series graphs.</li>
+</ul></li>
+<li><p><em>Canary Releases</em> and <em>Infrastructure/App Metrics</em> are related patterns that should ideally be implemented before Deployment Tracking to provide the baseline data needed for correlation.</p></li>
+</ul>
+
+<h3><code>5. Exception Tracking</code></h3>
+
+<ul>
+<li><p>This section details the Exception Tracking design pattern, which formalizes how to handle unexpected system behaviors that standard logging often obscures.</p></li>
+<li><p>The Problem: Standard log files are poor at handling exceptions because stack traces are multi-line with big files, making it difficult to de-duplicate recurring errors or track their resolution.</p></li>
+<li><p>The Solution: Developers should use an Exception Tracking Library to forward uncaught exceptions to a centralized service. This service automatically aggregates similar errors, attaches context like stack traces and user actions, and manages the lifecycle of the fix.</p></li>
+<li><p>Benefits of this pattern:</p>
+
+<ul>
+<li>Reduces MTTR (Mean Time to Repair)</li>
+<li>Cross-platform visibility</li>
+<li>Proactive fixing</li>
+</ul></li>
+<li><p>Drawbacks of this pattern:</p>
+
+<ul>
+<li>Requires instrumenting the source code with external SDKs.</li>
+<li>Third-party SaaS tools or self-hosting a tracking server introduces new operational expenses.</li>
+</ul></li>
+</ul>
+
+<h2>Questions/Discussion Points</h2>
+
+<ul>
+<li>This paper was published in 2024, what happened later? More papers/patterns? </li>
+</ul>
+
+<h2>Links/Resources</h2>
+
+<ul>
+<li>Previous work referenced that this paper builds on/continues:</li>
+</ul>
+
+<blockquote>
+  <p>Carlos Albuquerque. 2022. <em>Monitoring Design Patterns For Cloud Applications.</em> Master’s thesis. Faculty of Engineering, University of Porto. https://repositorio-aberto.up.pt/handle/10216/143462</p>
+</blockquote>
+
+<blockquote>
+  <p>Carlos Albuquerque, Kadu Relvas Barral, Filipe F Correia, and Kyle Brown. 2022. Proactive monitoring design patterns for cloud applications. In <em>Proceedings of the 25th European Conference on Pattern Languages of Programs</em>. ACM, Irsee, Germany, 21.</p>
+</blockquote>
+
+            </div>
+        </article>
+    </main>
+</body>
+</html>
