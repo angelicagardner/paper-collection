@@ -28,7 +28,13 @@ year: 2020
 
 ### `2. Fundamentals of SLO Monitoring`
 
-- ...
+- The hierarchy goes SLI -> SLO -> SLA. These three concepts form a layered structure to connect technical metrics to business commitments.
+
+- SLIs are measuring quality-of-service quantitatively. SLIs should balance system-level and user-centric metrics across four categories: processing efficiency, data quality, system reliability and resource utilization.
+
+- SLOs should balance user expectations, technical feasibility and business goals. Best practices include aligning SLOs with business objectives, leveraging historical data tools like Prometheus and Grafana, incrementally refining targets using the “SLO Maturity Model" and accounting for system component dependencies.
+
+- Error budgets define the acceptable unreliability by providing a framework for balancing reliability with innovation. Calculated as the difference between 100% and the SLO.
 
 ### `3. Architecture of High-Volume Processing Systems`
 
