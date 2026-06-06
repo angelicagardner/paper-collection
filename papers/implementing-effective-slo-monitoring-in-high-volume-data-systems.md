@@ -38,31 +38,41 @@ year: 2020
 
 ### `3. Architecture of High-Volume Processing Systems`
 
--  Distributed architectures offering superior scalability and fault tolerance but introduce monitoring complexities such as network partitions and partial failures. Comprehensive SLO monitoring in distributed environments can reduce mean time to detection for critical issues.
+- Distributed architectures offer superior scalability and fault tolerance but introduce monitoring complexities such as network partitions and partial failures. Comprehensive SLO monitoring in distributed environments can reduce mean time to detection for critical issues.
 
-- Batch and stream processing paradigms each serve distinct roles, with 65% of organizations using a hybrid of both. Stream processing demands tighter SLOs due to its real-time nature — systems achieving sub-100ms latency SLOs reported 28% higher user satisfaction compared to those operating at higher latency thresholds.
+- Batch and stream processing paradigms serve distinct roles, with many organizations using a hybrid of both. Stream processing demands tighter SLOs due to its real-time nature.
 
-- Data ingestion and storage choices directly impact SLO compliance. Optimized ingestion pipelines can cut end-to-end processing latency by 35% at scale. For datasets exceeding 10TB, distributed NoSQL databases outperform traditional relational databases with 3x better read/write latency, significantly improving retrieval SLO performance.
+- Data ingestion and storage choices directly impact SLO compliance. Optimized ingestion pipelines can cut end-to-end processing latency. For datasets exceeding 10TB, distributed NoSQL databases outperform traditional relational databases with better read/write latency.
 
-- Framework selection is a key determinant of SLO achievement. Apache Flink leads in stream processing, delivering 25% lower latency for complex event processing tasks, while Apache Spark excels at large-scale batch analytics, processing petabyte-scale datasets 40% faster than its closest competitor. Choosing the right framework for the workload type is critical to meeting performance targets.
+- Framework selection is a key determinant of SLO achievement. Choosing the right framework for the workload type is critical to meeting performance targets.
 
 ### `4. SLO Metrics for Data Processing Systems`
 
-- Latency and throughput are foundational SLO metrics. Implementing fixed latency targets at each processing stage can reduce overall processing time by 22%, while adaptive throughput frameworks that adjust targets based on incoming data volumes can improve resource utilization by 15% over static performance targets.
+- Latency and throughput are foundational SLO metrics.
 
-- Data quality and integrity SLOs are critical, particularly in high-stakes industries like finance and healthcare. Strict enforcement of data quality SLOs has led to a 45% reduction in data errors in high-volume financial trading systems. Machine learning-based real-time quality assessment techniques can achieve up to 92% anomaly detection accuracy, even at streaming speeds exceeding 100,000 events per second.
+- Data quality and integrity SLOs are critical, particularly in high-stakes industries like finance and healthcare.
 
-- Reliability and availability SLOs have a direct and measurable impact on business outcomes. Targeting 99.99% availability (under one hour of downtime per year) requires 30% more investment in redundancy compared to a 99.9% target, but yields significant returns — including a 65% reduction in critical outages and a 40% increase in customer retention for SaaS providers.
+- Reliability and availability SLOs have a direct and measurable impact on business outcomes.
 
-- Resource utilization metrics are essential for balancing cost and performance. Fine-grained SLOs for CPU, memory, disk I/O, and network bandwidth can reduce infrastructure costs by 25% while maintaining processing performance. AI-driven, SLO-aware resource allocation strategies can further improve utilization efficiency by 20% in cloud-based environments.
+- Resource utilization metrics are essential for balancing cost and performance.
 
 ### `5. Instrumentation Techniques for SLO Monitoring`
 
-- ...
+- Application-Level Instrumentation is a core technique that embeds monitoring code directly into applications to collect fine-grained metrics. Tools like OpenTelemetry and Micrometer standardize telemetry collection, and systems using this approach showed better MTTR for performance issues compared to infrastructure-only monitoring.
+
+- Infrastructure & Platform Monitoring complements application instrumentation by covering hardware, virtualization, and container orchestration. Combining both approaches enables organizations to detect SLO violations faster than siloed methods. Key tools include Prometheus, Grafana, and Elasticsearch.
+
+- Network Performance Monitoring is critical in distributed systems. Using real-time monitoring and dynamic routing reduced data transfer latency and improved job completion time. A mentioned ML-based approach further cut SLO violations during high-traffic periods by predicting network congestion proactively.
+
+- End-to-End Distributed Tracing provides visibility into how requests flow across complex systems. Organizations using distributed tracing saw a reduction in Mean Time to Detection (MTTD) for SLO violations and an improvement in overall system reliability. Leading open-source tools include Jaeger and Zipkin.
 
 ### `6. Data Collection and Aggregation Strategies`
 
-- ...
+- Time Series Data Management is foundational to SLO monitoring, enabling trend analysis and anomaly detection through timestamped metric storage. Specialized time-series databases like InfluxDB and TimescaleDB demonstrated a query performance improvement over traditional relational databases when handling large volumes of SLO compliance data.
+
+- Log Aggregation & Analysis provides rich contextual information about system behavior. Integrating log analysis alongside quantitative SLO metrics reduced false positives and improved root cause analysis accuracy. Platforms like Elastic Stack (ELK) and Splunk are highlighted for correlating logs with SLO metrics for deeper troubleshooting insights.
+
+- Real-Time vs. Batch Data Collection each serve different monitoring needs, real-time offers immediate visibility while batch processing suits deeper analysis. A hybrid approach combining real-time streaming for critical metrics with batch processing for detailed analysis proved most effective.
 
 ### `7. Statistical Analysis for SLO Evaluation`
 
@@ -94,7 +104,7 @@ year: 2020
 
 ## Questions/Discussion Points
 
-- ...
+- This is such a comprehensive guide I wonder if there is an updated version, since this is from 2020, or other articles continuing from this one to stay up-to-date. Or perhaps the info was foundational enough to not need a lot of changes.
 
 ## Links/Resources
 
