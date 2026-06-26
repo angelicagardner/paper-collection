@@ -76,15 +76,37 @@ year: 2020
 
 ### `7. Statistical Analysis for SLO Evaluation`
 
-- ...
+- Percentiles are preferred over averages when detecting performance degradations because they better reflect real user experience, especially in non-normal distributions.
+
+- EMA (Exponential Moving Average) trend analysis can predict SLO violations up to 24 hours in advance. 
+
+- ML techniques like Isolation Forests and DBSCAN achieve up to 92% accuracy in detecting anomalies in high-dimensional SLO data, enabling organizations to respond to potential SLO violations.
+
+- Advanced techniques like Granger causality and dynamic time warping help identify causal relationships between metrics, improving troubleshooting efficiency.
 
 ### `8. Visualization and Reporting of SLO Data`
 
-- ...
+- Tools like Grafana, Kibana, and Tableau are widely used for visualizing complex SLO metrics. Best practices include color-coding for service levels, drill-down capability and real-time alerting.
+
+- Platforms like PagerDuty and OpsGenie support alert routing, escalation policies and incident workflow integration. Multi-level alerting (warning + critical thresholds) cuts alert fatigue.
+
+- Power BI and Looker are commonly used to tailor reports for different stakeholders. Reports typically pull from multiple monitoring tools and cover trend analyses and violation details.
+
+- Companies using executive SLO dashboards report better alignment between technical and business teams. Scorecards, trend lines and heatmaps help present complex data to non-technical audiences. Summaries focus on service availability, customer impact and financial implications of SLO violations.
 
 ### `9. Machine Learning in SLO Monitoring`
 
-- ...
+- ML-based prediction models reduce unexpected SLO breaches by 45% vs. traditional threshold-based monitoring. Models use historical performance data, system metrics and contextual info to predict violations hours or days in advance.
+
+- Reinforcement learning-based adaptive thresholds cut false positive alerts by 60% and improve detection of performance degradation by 35%.
+
+- Common predictive models include ARIMA, Prophet (time series) and LSTM deep learning networks.
+
+- Bayesian changepoint detection and online learning algorithms are particularly effective for large-scale, non-stationary workloads.
+
+- Unsupervised clustering on SLO metric data improved anomaly detection accuracy. K-means, DBSCAN and hierarchical clustering are commonly used to group performance patterns and refine SLO definitions.
+
+- RL agents optimize the balance between monitoring frequency, resource use and detection accuracy. Deep Q-Networks and Proximal Policy Optimization have been successfully applied to build self-tuning monitoring systems.
 
 ### `10. Scalability Challenges in SLO Monitoring`
 
