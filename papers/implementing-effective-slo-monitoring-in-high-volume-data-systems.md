@@ -110,11 +110,21 @@ year: 2020
 
 ### `10. Scalability Challenges in SLO Monitoring`
 
-- ...
+- High cardinality metrics (with unique IDs/tags) cause exponential growth in storage and processing costs. Solutions include metric aggregation, downsampling and cardinality restrictions. Emerging approaches like HyperLogLog and PCA (dimensionality reduction) show promise for managing cardinality without losing accuracy.
+
+- Fully distributed monitoring delivers lower latency and higher data ingestion rates. The monitoring workload is spread across nodes, enabling horizontal scaling and fault tolerance. Popular tools include Thanos, M3DB and Prometheus federation, and key techniques like sharding, replication and gossip protocols.
+
+- Intelligent sampling can reduce monitoring data volume by up to 90% with less than 5% loss in SLO violation detection accuracy. Common methods include reservoir, stratified and adaptive sampling.
 
 ### `11. Real-Time SLO Monitoring and Alerting`
 
-- ...
+- Stream processing enables real-time SLO violation detection rather than waiting for batch cycles. Leading frameworks include Apache Flink, Kafka Streams and Spark Structured Streaming.
+
+- To reduce alert latency modern systems use push-based architectures (WebSockets, Server-Sent Events) for truly real-time notifications. Priority queues and alert batching handle high alert volumes without sacrificing speed for critical issues.
+
+- ML-based adaptive thresholds cut false-positive alerts and improved detection of minor degradations. Systems use time series decomposition, anomaly detection and online learning to continuously recalibrate thresholds.
+
+- To implement automated incident response workflows systems integrate alerting platforms with runbook automation for predefined remediation execution. Advanced approaches use decision trees, expert systems and ML models to adapt responses to changing failure modes. Chatbots and NLP further streamline collaboration and knowledge sharing during SLO incidents.
 
 ### `12. SLO Monitoring in Cloud and Hybrid Environments`
 
@@ -127,6 +137,8 @@ year: 2020
 ## Questions/Discussion Points
 
 - This is such a comprehensive guide I wonder if there is an updated version, since this is from 2020, or other articles continuing from this one to stay up-to-date. Or perhaps the info was foundational enough to not need a lot of changes.
+
+- There were several "emerging approaches" mentioned, I wonder if they were adopted or not in the industry.
 
 ## Links/Resources
 
