@@ -18,9 +18,9 @@ year: 2020
 
 ### `1. Introduction`
 
-- SLOs are specific, measurable targets for system reliability. Popularised by Google’s Site Reliability Engineering (SRE) practices.
+- SLOs are specific, measurable targets for system reliability. Popularized by Google’s Site Reliability Engineering (SRE) practices.
 
-- Monitoring high-volume data presents unique hurdles including Scalability (processing large amounts of data), Complexity (dependecies in distributed architecture), and Resource Contestability (monitoring consumes system resources, potentially impacting performance).
+- Monitoring high-volume data presents unique hurdles including Scalability (processing large amounts of data), Complexity (dependencies in distributed architecture), and Resource constraints (monitoring consumes system resources, potentially impacting performance).
 
 - SLO monitoring is vital for proactive problem detection and capacity planning.
 
@@ -44,17 +44,13 @@ year: 2020
 
 - Data ingestion and storage choices directly impact SLO compliance. Optimized ingestion pipelines can cut end-to-end processing latency. For datasets exceeding 10TB, distributed NoSQL databases outperform traditional relational databases with better read/write latency.
 
-- Framework selection is a key determinant of SLO achievement. Choosing the right framework for the workload type is critical to meeting performance targets.
-
 ### `4. SLO Metrics for Data Processing Systems`
 
-- Latency and throughput are foundational SLO metrics.
+- Resource utilization metrics are essential for balancing cost and performance. Latency and throughput are foundational SLO metrics.
 
 - Data quality and integrity SLOs are critical, particularly in high-stakes industries like finance and healthcare.
 
 - Reliability and availability SLOs have a direct and measurable impact on business outcomes.
-
-- Resource utilization metrics are essential for balancing cost and performance.
 
 ### `5. Instrumentation Techniques for SLO Monitoring`
 
