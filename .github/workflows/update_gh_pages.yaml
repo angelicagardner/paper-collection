@@ -1,28 +1,38 @@
 name: Update Talks Information and Deploy to GitHub Pages
-
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   update_index:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-      
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      
+
       - name: Install Dependencies
         run: pip install -r requirements.txt
-      
+
       - name: Run Python Script
         run: python main.py
-      
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -30,13 +40,15 @@ jobs:
           git add index.html papers/html/*.html
           git commit -m "chore: regenerate paper pages" || echo "No changes to commit"
           git push
-  
-  deploy:
+
+  build:
     needs: update_index
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          ref: main
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
