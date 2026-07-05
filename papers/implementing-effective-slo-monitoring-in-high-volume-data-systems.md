@@ -128,11 +128,23 @@ year: 2020
 
 ### `12. SLO Monitoring in Cloud and Hybrid Environments`
 
-- ...
+- The majority of large enterprises use multiple cloud providers, making unified cross-platform SLO monitoring essential. It requires standardized metrics collection, provider-agnostic normalization and centralized analysis. Federated ML and distributed ledger tech are emerging as decentralized monitoring approaches.
+
+- Monitoring has to include container-aware tools and function-level instrumentation for containerized microservices. eBPF instrumentation and unikernel-based monitoring show promise for low-overhead, high-fidelity tracking.
+
+- Edge environments face constrained connectivity and hardware heterogeneity and requires Edge-specific monitoring. The key needs are: local telemetry processing, adaptive sync with central systems and resilience to connectivity gaps. Federated learning (distributed anomaly detection) and fog computing layers (hierarchical SLO management) are promising techniques.
+
+- Main challenge: inconsistent SLO definitions across multi-cloud setups.
 
 ### `13. Security and Compliance in SLO Monitoring`
 
-- ...
+- Organizations struggle to balance thorough SLO monitoring with privacy requirements. GDPR/CCPA compliance makes data privacy critical when collecting SLO metrics. Standard approaches include anonymization, pseudonymization and aggregation at collection time.
+
+- Integrating SLO data into compliance workflows is best practice in regulated industries. Key requirements include immutable audit trails, role-based access controls and traceable SLO calculations.
+
+- Examples of advanced approaches are ABAC (attribute-based access control) and JIT (just-in-time) access provisioning that balance security with operational needs. ML-based anomaly detection on access patterns helps proactively catch security violations.
+
+- Most organizations prioritize encryption for protecting SLO data. Hardware-accelerated encryption reduce latency for high-bandwidth SLO data streams. Format-preserving and searchable encryption allow secure analytics on encrypted data without full decryption.
 
 ## Questions/Discussion Points
 
@@ -140,6 +152,4 @@ year: 2020
 
 - There were several "emerging approaches" mentioned, I wonder if they were adopted or not in the industry.
 
-## Links/Resources
-
-- ...
+- As data processing environments diversify (multi-cloud, containers/serverless, edge), SLO monitoring must evolve from centralized, host-based approaches toward decentralized, context-aware and AI-assisted strategies tailored to each paradigm’s unique constraints.
