@@ -6,39 +6,40 @@ on:
 
 jobs:
   sync-labels:
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v7
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Sync Labels
-      uses: actions/github-script@v9
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const prBody = context.payload.pull_request.body;
-          const issueMatch = prBody ? prBody.match(/#(\d+)/) : null;
-          
-          if (issueMatch) {
-            const issue_number = issueMatch[1];
-            const issue = await github.issues.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue_number,
-            });
-            const labels = issue.data.labels.map(label => label.name);
-            
-            await github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              labels: labels
-            });
-          } else {
-            console.log('No associated issue number found in the PR description.');
-          }
+      - name: Sync Labels
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prBody = context.payload.pull_request.body;
+            const issueMatch = prBody ? prBody.match(/#(\d+)/) : null;
 
-    - name: Random RickRoll
-      uses: TejasvOnly/random-rickroll@v1.0
-      with:
+            if (issueMatch) {
+              const issue_number = issueMatch[1];
+              const issue = await github.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+              });
+              const labels = issue.data.labels.map(label => label.name);
+
+              await github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: labels
+              });
+            } else {
+              console.log('No associated issue number found in the PR description.');
+            }
+
+      - name: Random RickRoll
+        uses: TejasvOnly/random-rickroll@v1.0
+        with:
           percentage: 25
